@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rannaghar - Authentic Bengali Home Kitchen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FAF7F2;
+            --bg-alt: #EFECE6;
+            --card-bg: #FFFFFF;
+            --terracotta: #C85A32;
+            --terracotta-hover: #B04B27;
+            --text-dark: #2B1A15;
+            --text-muted: #786862;
+            --border-color: #E8E2D9;
+            --font-serif: 'DM Serif Display', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background-color: var(--bg-main);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-tab {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding-bottom: 0.25rem;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            color: var(--terracotta);
+        }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--terracotta);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.35rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-dark);
+        }
+
+        .btn-terracotta {
+            background-color: var(--terracotta);
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .btn-terracotta:hover {
+            background-color: var(--terracotta-hover);
+        }
+
+        .btn-white {
+            background-color: #FFFFFF;
+            color: var(--terracotta);
+            border: none;
+        }
+
+        .btn-white-outline {
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            background: transparent;
+        }
+
+        .btn-white-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(rgba(250, 247, 242, 0.82), rgba(250, 247, 242, 0.88)), url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-eyebrow {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--terracotta);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: var(--text-dark);
+            line-height: 1.1;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: var(--terracotta);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin: 4rem 0 2.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            padding: 0 2rem;
+        }
+
+        .food-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+
+        .food-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        }
+
+        .img-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: #E8E2D9;
+        }
+
+        .food-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-dark);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            backdrop-filter: blur(4px);
+        }
+
+        .food-info {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .food-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .food-name {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--text-dark);
+        }
+
+        .food-price {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            color: var(--terracotta);
+            font-size: 1.1rem;
+        }
+
+        .food-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .center-btn-wrapper {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .why-order-section {
+            background-color: var(--bg-alt);
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .banner-cta {
+            background-color: var(--terracotta);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .banner-title {
+            font-family: var(--font-serif);
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .banner-desc {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .banner-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .info-section {
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-block {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            color: var(--terracotta);
+            margin-top: 0.2rem;
+        }
+
+        .info-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .info-link {
+            display: inline-block;
+            color: var(--terracotta);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.9rem 1.25rem 0.9rem 3rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--terracotta);
+            box-shadow: 0 0 0 3px rgba(200, 90, 50, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--text-muted);
+        }
+
+        .filter-btn.active {
+            background: var(--terracotta);
+            color: #FFFFFF;
+            border-color: var(--terracotta);
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        .about-text h3 {
+            font-family: var(--font-serif);
+            font-size: 2.25rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature-card {
+            background: var(--bg-alt);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .about-feature-card h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.35rem;
+        }
+
+        .about-feature-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .contact-top-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card-lg {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            color: var(--terracotta);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card-icon.wa {
+            background: #DCFCE7;
+            color: #16A34A;
+        }
+
+        .contact-card-lg h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-card-lg p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-wa-green {
+            background: #25D366;
+            color: white;
+            border: none;
+        }
+
+        .btn-wa-green:hover {
+            background: #1DA851;
+        }
+
+        .form-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-main);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            border-color: #25D366;
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
+            background: var(--card-bg);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 50px;
+            background: #25D366;
+            color: white;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .form-submit-btn:hover {
+            background: #1DA851;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
+        }
+
+        .contact-mid-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-card {
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.75rem;
+        }
+
+        .contact-info-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-info-header h4 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+
+        .hours-row.closed span:last-child {
+            color: #DC2626;
+            font-weight: 600;
+        }
+
+        .location-text {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            height: 350px;
+            width: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        footer {
+            background-color: var(--bg-main);
+            padding: 3rem 2rem 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col h4 {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--terracotta);
+        }
+
+        @media (max-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-title, .hero-subtitle {
+                font-size: 2.75rem;
+            }
+
+            .cards-grid,
+            .about-grid,
+            .contact-top-grid,
+            .contact-mid-grid,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Rannaghar</a>
+            <ul class="nav-tabs">
+                <li class="nav-tab active" onclick="switchTab('home')">Home</li>
+                <li class="nav-tab" onclick="switchTab('menu')">Menu</li>
+                <li class="nav-tab" onclick="switchTab('about')">About Us</li>
+                <li class="nav-tab" onclick="switchTab('contact')">Contact</li>
+            </ul>
+            <div class="header-actions">
+                <a href="tel:+919123456896" class="btn btn-outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span>Call Order</span>
+                </a>
+                <a href="https://wa.me/919123456896" class="btn btn-terracotta">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="home" class="tab-content active">
+            <section class="hero-section">
+                <div class="hero-eyebrow">HOME KITCHEN • BALLY</div>
+                <h1 class="hero-title">Taste Real Bengali</h1>
+                <h2 class="hero-subtitle">Home Cooking</h2>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">Featured From Our Kitchen</h2>
+                    <p class="section-desc">A few favourites from our daily Bengali menu.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="food-card">
+                        <div class="img-container">
+                            <span class="badge">Non-Veg</span>
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Kosha Mangsho" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Kosha Mangsho</h3>
+                                <span class="food-price">₹320</span>
+                            </div>
+                            <p class="food-desc">Slow-cooked spicy mutton curry with rich caramelized onions and whole spices.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="img-container">
+                            <span class="badge">Non-Veg</span>
+                            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80" alt="Shorshe Ilish" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Shorshe Ilish</h3>
+                                <span class="food-price">₹280</span>
+                            </div>
+                            <p class="food-desc">Hilsa fish in a sharp mustard gravy — a true Bengali classic.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="img-container">
+                            <span class="badge">Non-Veg</span>
+                            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=600&q=80" alt="Chingri Malai Curry" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Chingri Malai Curry</h3>
+                                <span class="food-price">₹300</span>
+                            </div>
+                            <p class="food-desc">Tiger prawns simmered in a mildly spiced coconut milk gravy.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="img-container">
+                            <span class="badge">Non-Veg</span>
+                            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80" alt="Bhetki Paturi" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Bhetki Paturi</h3>
+                                <span class="food-price">₹260</span>
+                            </div>
+                            <p class="food-desc">Steamed bhetki fillet wrapped in banana leaf with mustard and coconut.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center-btn-wrapper">
+                    <button class="btn btn-terracotta" onclick="switchTab('menu')">View Full Menu</button>
+                </div>
+            </section>
+
+            <section class="why-order-section">
+                <div class="section-header" style="margin-top: 0;">
+                    <h2 class="section-title">Why Order From Rannaghar?</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        </div>
+                        <h3 class="feature-title">Home-Style Taste</h3>
+                        <p class="feature-desc">Every dish is cooked like it is at home — no restaurant shortcuts, just honest Bengali flavours.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        </div>
+                        <h3 class="feature-title">Fresh Ingredients</h3>
+                        <p class="feature-desc">We buy vegetables, fish, and spices daily so every meal is fresh and full of aroma.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        </div>
+                        <h3 class="feature-title">Fast Delivery</h3>
+                        <p class="feature-desc">Hot meals packed carefully and delivered quickly across Bally, straight to your door.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="banner-cta">
+                <h2 class="banner-title">Craving Bengali Comfort Food?</h2>
+                <p class="banner-desc">Skip the apps. Just call or message us on WhatsApp and we will take care of the rest.</p>
+                <div class="banner-buttons">
+                    <a href="tel:+919123456896" class="btn btn-white">Call +91 91234 56896</a>
+                    <a href="https://wa.me/919123456896" class="btn btn-white-outline">WhatsApp Order</a>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div class="info-block">
+                    <div class="info-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div>
+                        <h4 class="info-title">Kitchen Hours</h4>
+                        <p class="info-text">Tue – Fri: 11:00 AM – 10:00 PM</p>
+                        <p class="info-text">Sat – Sun: 10:00 AM – 11:00 PM</p>
+                        <p class="info-text">Monday: Closed</p>
+                    </div>
+                </div>
+
+                <div class="info-block">
+                    <div class="info-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div>
+                        <h4 class="info-title">Location</h4>
+                        <p class="info-text">Rannaghar Home Kitchen, Bally, Howrah</p>
+                        <p class="info-text">West Bengal 711201 · Delivery within 5 km</p>
+                        <a href="#" class="info-link">View on map &rarr;</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="menu" class="tab-content menu-container">
+            <div class="section-header" style="margin-top: 0;">
+                <h2 class="section-title">Our Bengali Menu</h2>
+                <p class="section-desc">Homestyle favourites. Call or WhatsApp to order for delivery in Bally.</p>
+            </div>
+
+            <div class="search-container">
+                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search dishes..." onkeyup="filterMenu()">
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterCategory('All', this)">All</button>
+                <button class="filter-btn" onclick="filterCategory('Starter', this)">Starter</button>
+                <button class="filter-btn" onclick="filterCategory('Veg', this)">Veg</button>
+                <button class="filter-btn" onclick="filterCategory('Non-Veg', this)">Non-Veg</button>
+                <button class="filter-btn" onclick="filterCategory('Dessert', this)">Dessert</button>
+                <button class="filter-btn" onclick="filterCategory('Drinks', this)">Drinks</button>
+            </div>
+
+            <div class="cards-grid" id="menuGrid">
+                <!-- Non-Veg -->
+                <div class="food-card menu-item" data-category="Non-Veg">
+                    <div class="img-container">
+                        <span class="badge">Non-Veg</span>
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Kosha Mangsho" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Kosha Mangsho</h3>
+                            <span class="food-price">₹320</span>
+                        </div>
+                        <p class="food-desc">Slow-cooked spicy mutton curry with caramelized onions and whole spices.</p>
+                    </div>
+                </div>
+
+                <div class="food-card menu-item" data-category="Non-Veg">
+                    <div class="img-container">
+                        <span class="badge">Non-Veg</span>
+                        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80" alt="Shorshe Ilish" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Shorshe Ilish</h3>
+                            <span class="food-price">₹280</span>
+                        </div>
+                        <p class="food-desc">Hilsa fish in a sharp mustard gravy — a true Bengali classic.</p>
+                    </div>
+                </div>
+
+                <div class="food-card menu-item" data-category="Non-Veg">
+                    <div class="img-container">
+                        <span class="badge">Non-Veg</span>
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=600&q=80" alt="Chingri Malai Curry" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Chingri Malai Curry</h3>
+                            <span class="food-price">₹300</span>
+                        </div>
+                        <p class="food-desc">Tiger prawns simmered in a mildly spiced coconut milk gravy.</p>
+                    </div>
+                </div>
+
+                <div class="food-card menu-item" data-category="Non-Veg">
+                    <div class="img-container">
+                        <span class="badge">Non-Veg</span>
+                        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80" alt="Bhetki Paturi" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Bhetki Paturi</h3>
+                            <span class="food-price">₹260</span>
+                        </div>
+                        <p class="food-desc">Steamed bhetki fillet wrapped in banana leaf with mustard and coconut.</p>
+                    </div>
+                </div>
+
+                <!-- Veg -->
+                <div class="food-card menu-item" data-category="Veg">
+                    <div class="img-container">
+                        <span class="badge">Veg</span>
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80" alt="Dhokar Dalna" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Dhokar Dalna</h3>
+                            <span class="food-price">₹220</span>
+                        </div>
+                        <p class="food-desc">Fried lentil cakes in a light, flavourful tomato and ginger gravy.</p>
+                    </div>
+                </div>
+
+                <div class="food-card menu-item" data-category="Veg">
+                    <div class="img-container">
+                        <span class="badge">Veg</span>
+                        <img src="https://images.unsplash.com/photo-1589647363585-f4a7d3877b10?auto=format&fit=crop&w=600&q=80" alt="Aloo Posto" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Aloo Posto</h3>
+                            <span class="food-price">₹180</span>
+                        </div>
+                        <p class="food-desc">Potatoes cooked in a silky poppy-seed paste with green chillies.</p>
+                    </div>
+                </div>
+
+                <div class="food-card menu-item" data-category="Veg">
+                    <div class="img-container">
+                        <span class="badge">Veg</span>
+                        <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Mishti Pulao" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Mishti Pulao</h3>
+                            <span class="food-price">₹200</span>
+                        </div>
+                        <p class="food-desc">Fragrant sweet rice with cashews, raisins and a hint of ghee.</p>
+                    </div>
+                </div>
+
+                <div class="food-card menu-item" data-category="Veg">
+                    <div class="img-container">
+                        <span class="badge">Veg</span>
+                        <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Luchi with Cholar Dal" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Luchi with Cholar Dal</h3>
+                            <span class="food-price">₹190</span>
+                        </div>
+                        <p class="food-desc">Fluffy fried bread served with spiced bengal gram curry.</p>
+                    </div>
+                </div>
+
+                <!-- More Non-Veg -->
+                <div class="food-card menu-item" data-category="Non-Veg">
+                    <div class="img-container">
+                        <span class="badge">Non-Veg</span>
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80" alt="Mutton Biryani" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Mutton Biryani</h3>
+                            <span class="food-price">₹350</span>
+                        </div>
+                        <p class="food-desc">Aromatic long-grain rice with tender mutton, potato and boiled egg.</p>
+                    </div>
+                </div>
+
+                <!-- Dessert -->
+                <div class="food-card menu-item" data-category="Dessert">
+                    <div class="img-container">
+                        <span class="badge">Dessert</span>
+                        <img src="https://images.unsplash.com/photo-1589119908995-c6837fa14848?auto=format&fit=crop&w=600&q=80" alt="Rosogolla" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Rosogolla</h3>
+                            <span class="food-price">₹80</span>
+                        </div>
+                        <p class="food-desc">Soft, spongy cottage-cheese sweets in light sugar syrup (2 pcs).</p>
+                    </div>
+                </div>
+
+                <!-- Starters -->
+                <div class="food-card menu-item" data-category="Starter">
+                    <div class="img-container">
+                        <span class="badge">Starter</span>
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Beguni" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Beguni</h3>
+                            <span class="food-price">₹90</span>
+                        </div>
+                        <p class="food-desc">Crispy gram-flour battered eggplant fritters, a classic Bengali starter.</p>
+                    </div>
+                </div>
+
+                <div class="food-card menu-item" data-category="Starter">
+                    <div class="img-container">
+                        <span class="badge">Starter</span>
+                        <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" alt="Fish Fry" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Fish Fry</h3>
+                            <span class="food-price">₹160</span>
+                        </div>
+                        <p class="food-desc">Golden crumb-fried bhetki with kasundi mustard and salad on the side.</p>
+                    </div>
+                </div>
+
+                <div class="food-card menu-item" data-category="Dessert">
+                    <div class="img-container">
+                        <span class="badge">Dessert</span>
+                        <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?auto=format&fit=crop&w=600&q=80" alt="Mishti Doi" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Mishti Doi</h3>
+                            <span class="food-price">₹70</span>
+                        </div>
+                        <p class="food-desc">Traditional sweetened baked yoghurt served chilled in an earthen pot.</p>
+                    </div>
+                </div>
+
+                <!-- Drinks -->
+                <div class="food-card menu-item" data-category="Drinks">
+                    <div class="img-container">
+                        <span class="badge">Drinks</span>
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Aam Pora Shorbot" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Aam Pora Shorbot</h3>
+                            <span class="food-price">₹60</span>
+                        </div>
+                        <p class="food-desc">Refreshing roasted raw mango cooler spiced with roasted cumin and black salt.</p>
+                    </div>
+                </div>
+
+                <div class="food-card menu-item" data-category="Drinks">
+                    <div class="img-container">
+                        <span class="badge">Drinks</span>
+                        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" alt="Gondhoraj Lebur Shorbot" class="food-img">
+                    </div>
+                    <div class="food-info">
+                        <div class="food-header">
+                            <h3 class="food-name">Gondhoraj Lebur Shorbot</h3>
+                            <span class="food-price">₹50</span>
+                        </div>
+                        <p class="food-desc">Fragrant Bengali lime lemonade served chilled with a hint of mint.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="about" class="tab-content about-container">
+            <div class="section-header" style="margin-top: 0;">
+                <h2 class="section-title">About Rannaghar</h2>
+                <p class="section-desc">A small home kitchen in Bally with one big goal: to serve you the comforting, authentic taste of Bengali home cooking.</p>
+            </div>
+
+            <div class="about-grid">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" alt="Traditional Bengali Feast" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>Made Like It Is At Home</h3>
+                    <p>Rannaghar started with a simple belief: the best Bengali food is the kind cooked at home. We do not use mass-production shortcuts or frozen bases. Every masala is ground fresh, every curry is simmered slowly, and every plate is packed with the same care we would serve our own family.</p>
+                    <p>From Kosha Mangsho on a Sunday afternoon to Shorshe Ilish when the season is right, our menu celebrates the everyday food Bengali households love.</p>
+
+                    <div class="about-features">
+                        <div class="about-feature-card">
+                            <h4>Fresh Daily</h4>
+                            <p>Vegetables, fish, and meats bought fresh every morning.</p>
+                        </div>
+                        <div class="about-feature-card">
+                            <h4>No Apps Needed</h4>
+                            <p>Just call or WhatsApp to place your order directly.</p>
+                        </div>
+                        <div class="about-feature-card">
+                            <h4>Bally Delivery</h4>
+                            <p>Hot meals delivered quickly across Bally.</p>
+                        </div>
+                        <div class="about-feature-card">
+                            <h4>Homestyle Recipes</h4>
+                            <p>Traditional recipes passed down through generations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="tab-content contact-container">
+            <div class="section-header" style="margin-top: 0;">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-desc">Ready to order? We take orders directly by phone and WhatsApp. No apps, no waiting.</p>
+            </div>
+
+            <div class="contact-top-grid">
+                <div class="contact-card-lg">
+                    <div class="contact-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Speak directly to place your order.</p>
+                    <a href="tel:+919123456896" class="btn btn-terracotta">+91 91234 56896</a>
+                </div>
+
+                <div class="contact-card-lg">
+                    <div class="contact-card-icon wa">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </div>
+                    <h3>WhatsApp Order</h3>
+                    <p>Message us your order anytime.</p>
+                    <a href="https://wa.me/919123456896" class="btn btn-wa-green">Send Message</a>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <div class="form-header">
+                    <h3>⚡ Quick WhatsApp Order Form</h3>
+                    <p>Fill out your details and click below to send your order directly to our WhatsApp!</p>
+                </div>
+                <form id="waOrderForm" onsubmit="sendToWhatsApp(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="custName">Your Name *</label>
+                            <input type="text" id="custName" class="form-input" placeholder="e.g. Rahul Mukherjee" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="custPhone">Phone Number *</label>
+                            <input type="tel" id="custPhone" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="form-label" for="custDish">Select Dish / Cravings *</label>
+                            <select id="custDish" class="form-select" required>
+                                <option value="" disabled selected>-- Select a Signature Dish --</option>
+                                <option value="Kosha Mangsho (₹320)">Kosha Mangsho - ₹320</option>
+                                <option value="Shorshe Ilish (₹280)">Shorshe Ilish - ₹280</option>
+                                <option value="Chingri Malai Curry (₹300)">Chingri Malai Curry - ₹300</option>
+                                <option value="Bhetki Paturi (₹260)">Bhetki Paturi - ₹260</option>
+                                <option value="Mutton Biryani (₹350)">Mutton Biryani - ₹350</option>
+                                <option value="Dhokar Dalna (₹220)">Dhokar Dalna - ₹220</option>
+                                <option value="Luchi with Cholar Dal (₹190)">Luchi with Cholar Dal - ₹190</option>
+                                <option value="Multiple Dishes (Listed in Notes)">Multiple Items / Custom Order</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="form-label" for="custAddress">Delivery Address in Bally *</label>
+                            <input type="text" id="custAddress" class="form-input" placeholder="House/Flat No, Street Name, Nearest Landmark" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="form-label" for="custNotes">Special Instructions / Additional Dishes (Optional)</label>
+                            <textarea id="custNotes" class="form-textarea" placeholder="e.g. Make it medium spicy, add 2 pcs Rosogolla, deliver by 1:30 PM..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="form-submit-btn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        Send Order to WhatsApp &rarr;
+                    </button>
+                </form>
+            </div>
+
+            <div class="contact-mid-grid">
+                <div class="contact-info-card">
+                    <div class="contact-info-header">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <h4>Opening Hours</h4>
+                    </div>
+                    <div class="hours-row">
+                        <span>Tuesday – Friday</span>
+                        <span>11:00 AM – 10:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Saturday – Sunday</span>
+                        <span>10:00 AM – 11:00 PM</span>
+                    </div>
+                    <div class="hours-row closed">
+                        <span>Monday</span>
+                        <span>Closed</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1.25rem;">Last order 30 minutes before closing.</p>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-info-header">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <h4>Our Location</h4>
+                    </div>
+                    <div class="location-text">
+                        <strong>Rannaghar Home Kitchen</strong><br>
+                        Bally, Howrah<br>
+                        West Bengal 711201, India
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-dark); margin-bottom: 1.25rem;"><strong>Delivery Area:</strong> Bally & nearby localities (within 5 km)</p>
+                    <a href="https://maps.google.com/?q=Bally,Howrah,West+Bengal" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.4rem 1rem;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Open in Google Maps
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29456.96316201314!2d88.3262657!3d22.6483321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89db8eec7bf07%3A0x2bd03ecfba7eaeb7!2sBally%2C%20Howrah%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">Rannaghar</div>
+                <p>Authentic Bengali home kitchen serving fresh, homestyle meals in Bally.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="switchTab('home')">Home</a></li>
+                    <li><a href="#" onclick="switchTab('menu')">Menu</a></li>
+                    <li><a href="#" onclick="switchTab('about')">About Us</a></li>
+                    <li><a href="#" onclick="switchTab('contact')">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Order Now</h4>
+                <p>Call: +91 91234 56896</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentCategory = 'All';
+
+        function switchTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const navs = document.querySelectorAll('.nav-tab');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            navs.forEach(nav => nav.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            
+            const tabOrder = ['home', 'menu', 'about', 'contact'];
+            const activeIndex = tabOrder.indexOf(tabId);
+            if(activeIndex !== -1) {
+                navs[activeIndex].classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterCategory(category, btnElement) {
+            currentCategory = category;
+            
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if(btnElement) btnElement.classList.add('active');
+
+            filterMenu();
+        }
+
+        function filterMenu() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.menu-item');
+
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                const itemName = item.querySelector('.food-name').innerText.toLowerCase();
+                const itemDesc = item.querySelector('.food-desc').innerText.toLowerCase();
+
+                const matchesCategory = (currentCategory === 'All' || itemCategory === currentCategory);
+                const matchesSearch = (itemName.includes(searchQuery) || itemDesc.includes(searchQuery));
+
+                if (matchesCategory && matchesSearch) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const dish = document.getElementById('custDish').value;
+            const address = document.getElementById('custAddress').value;
+            const notes = document.getElementById('custNotes').value || "None";
+            
+            const message = `*🍳 NEW ORDER FROM RANNAGHAR WEBSITE*%0A%0A` +
+                            `*Customer Name:* ${name}%0A` +
+                            `*Phone Number:* ${phone}%0A` +
+                            `*Selected Dish:* ${dish}%0A` +
+                            `*Delivery Address:* ${address}%0A` +
+                            `*Special Instructions / Notes:* ${notes}%0A%0A` +
+                            `_Please confirm if this order can be processed!_`;
+            
+            const ownerPhone = "919123456896";
+            
+            const waURL = `https://wa.me/${ownerPhone}?text=${message}`;
+            window.open(waURL, '_blank');
+        }
+    </script>
+</body>
+</html>
