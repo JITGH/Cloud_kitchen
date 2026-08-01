@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rannaghar - Authentic Bengali Home Kitchen</title>
+    <title>Curst & Kosha - Fresh Eats From Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -53,11 +53,17 @@
         }
 
         .logo {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            color: var(--text-dark);
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            font-weight: bold;
+        }
+        
+        .logo img {
+            height: 70px;
+            width: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .nav-tabs {
@@ -161,12 +167,12 @@
 
         .hero-section {
             position: relative;
-            min-height: 480px;
+            min-height: 500px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 4rem 2rem;
-            background: linear-gradient(rgba(250, 247, 242, 0.82), rgba(250, 247, 242, 0.88)), url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(250, 247, 242, 0.85), rgba(250, 247, 242, 0.85)), url('back.jpeg') center/cover no-repeat;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -177,22 +183,25 @@
             color: var(--terracotta);
             text-transform: uppercase;
             margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
         }
 
         .hero-title {
             font-family: var(--font-serif);
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--text-dark);
             line-height: 1.1;
             max-width: 800px;
+            text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.95);
         }
 
         .hero-subtitle {
             font-family: var(--font-serif);
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--terracotta);
             line-height: 1.1;
             margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.95);
         }
 
         .section-header {
@@ -409,6 +418,11 @@
             font-size: 0.85rem;
             text-decoration: none;
             margin-top: 0.5rem;
+        }
+
+        #menu {
+            background: linear-gradient(rgba(250, 247, 242, 0.85), rgba(250, 247, 242, 0.85)), url('back.jpeg') center/cover fixed;
+            min-height: 100vh;
         }
 
         .menu-container {
@@ -860,7 +874,9 @@
 
     <header>
         <div class="header-container">
-            <a href="#" class="logo">Rannaghar</a>
+            <a href="#" class="logo">
+                <img src="logo.jpeg" alt="Curst & Kosha Logo">
+            </a>
             <ul class="nav-tabs">
                 <li class="nav-tab active" onclick="switchTab('home')">Home</li>
                 <li class="nav-tab" onclick="switchTab('menu')">Menu</li>
@@ -883,71 +899,71 @@
     <main>
         <div id="home" class="tab-content active">
             <section class="hero-section">
-                <div class="hero-eyebrow">HOME KITCHEN • BALLY</div>
-                <h1 class="hero-title">Taste Real Bengali</h1>
-                <h2 class="hero-subtitle">Home Cooking</h2>
+                <div class="hero-eyebrow">CLOUD KITCHEN • BALLY</div>
+                <h1 class="hero-title">Curst & Kosha</h1>
+                <h2 class="hero-subtitle">Fresh Eats From Home</h2>
             </section>
 
             <section>
                 <div class="section-header">
                     <h2 class="section-title">Featured From Our Kitchen</h2>
-                    <p class="section-desc">A few favourites from our daily Bengali menu.</p>
+                    <p class="section-desc">A few favourites from our daily menu.</p>
                 </div>
 
                 <div class="cards-grid">
                     <div class="food-card">
                         <div class="img-container">
-                            <span class="badge">Non-Veg</span>
-                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Kosha Mangsho" class="food-img">
+                            <span class="badge">Burgers</span>
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Chicken Burger" class="food-img">
                         </div>
                         <div class="food-info">
                             <div class="food-header">
-                                <h3 class="food-name">Kosha Mangsho</h3>
-                                <span class="food-price">₹320</span>
+                                <h3 class="food-name">Chicken Burger</h3>
+                                <span class="food-price">₹120</span>
                             </div>
-                            <p class="food-desc">Slow-cooked spicy mutton curry with rich caramelized onions and whole spices.</p>
+                            <p class="food-desc">Juicy chicken patty with fresh lettuce, mayo and special sauces.</p>
                         </div>
                     </div>
 
                     <div class="food-card">
                         <div class="img-container">
-                            <span class="badge">Non-Veg</span>
-                            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80" alt="Shorshe Ilish" class="food-img">
+                            <span class="badge">Pizzas</span>
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Chicken Pizza" class="food-img">
                         </div>
                         <div class="food-info">
                             <div class="food-header">
-                                <h3 class="food-name">Shorshe Ilish</h3>
-                                <span class="food-price">₹280</span>
+                                <h3 class="food-name">Chicken Pizza</h3>
+                                <span class="food-price">₹159</span>
                             </div>
-                            <p class="food-desc">Hilsa fish in a sharp mustard gravy — a true Bengali classic.</p>
+                            <p class="food-desc">Loaded with seasoned chicken and gooey melted cheese.</p>
                         </div>
                     </div>
 
                     <div class="food-card">
                         <div class="img-container">
-                            <span class="badge">Non-Veg</span>
-                            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=600&q=80" alt="Chingri Malai Curry" class="food-img">
+                            <span class="badge">Pasta</span>
+                            <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=600&q=80" alt="White Sauce Pasta" class="food-img">
                         </div>
                         <div class="food-info">
                             <div class="food-header">
-                                <h3 class="food-name">Chingri Malai Curry</h3>
-                                <span class="food-price">₹300</span>
+                                <h3 class="food-name">White Sauce Pasta</h3>
+                                <span class="food-price">₹149</span>
                             </div>
-                            <p class="food-desc">Tiger prawns simmered in a mildly spiced coconut milk gravy.</p>
+                            <p class="food-desc">Creamy and cheesy white sauce pasta garnished with herbs.</p>
                         </div>
                     </div>
 
                     <div class="food-card">
                         <div class="img-container">
-                            <span class="badge">Non-Veg</span>
-                            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80" alt="Bhetki Paturi" class="food-img">
+                            <span class="badge">Maggi</span>
+                            <img src="https://images.unsplash.com/photo-1612929633738-8fe01f7c8136?auto=format&fit=crop&w=600&q=80" alt="Cheese Maggie" class="food-img">
                         </div>
                         <div class="food-info">
                             <div class="food-header">
-                                <h3 class="food-name">Bhetki Paturi</h3>
-                                <span class="food-price">₹260</span>
+                                <h3 class="food-name">Cheese Maggie</h3>
+                                <span class="food-price">₹70</span>
                             </div>
-                            <p class="food-desc">Steamed bhetki fillet wrapped in banana leaf with mustard and coconut.</p>
+                            <p class="food-desc">Classic masala Maggi loaded with gooey melted cheese.</p>
                         </div>
                     </div>
                 </div>
@@ -959,7 +975,7 @@
 
             <section class="why-order-section">
                 <div class="section-header" style="margin-top: 0;">
-                    <h2 class="section-title">Why Order From Rannaghar?</h2>
+                    <h2 class="section-title">Why Order From Curst & Kosha?</h2>
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
@@ -967,7 +983,7 @@
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                         </div>
                         <h3 class="feature-title">Home-Style Taste</h3>
-                        <p class="feature-desc">Every dish is cooked like it is at home — no restaurant shortcuts, just honest Bengali flavours.</p>
+                        <p class="feature-desc">Every dish is cooked like it is at home — no restaurant shortcuts, just honest flavours.</p>
                     </div>
 
                     <div class="feature-card">
@@ -975,7 +991,7 @@
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                         </div>
                         <h3 class="feature-title">Fresh Ingredients</h3>
-                        <p class="feature-desc">We buy vegetables, fish, and spices daily so every meal is fresh and full of aroma.</p>
+                        <p class="feature-desc">We buy vegetables and meats daily so every meal is fresh and full of aroma.</p>
                     </div>
 
                     <div class="feature-card">
@@ -989,7 +1005,7 @@
             </section>
 
             <section class="banner-cta">
-                <h2 class="banner-title">Craving Bengali Comfort Food?</h2>
+                <h2 class="banner-title">Craving Fresh Comfort Food?</h2>
                 <p class="banner-desc">Skip the apps. Just call or message us on WhatsApp and we will take care of the rest.</p>
                 <div class="banner-buttons">
                     <a href="tel:+917044487197" class="btn btn-white">Call +91 7044487197</a>
@@ -1004,9 +1020,8 @@
                     </div>
                     <div>
                         <h4 class="info-title">Kitchen Hours</h4>
-                        <p class="info-text">Tue – Fri: 11:00 AM – 10:00 PM</p>
-                        <p class="info-text">Sat – Sun: 10:00 AM – 11:00 PM</p>
-                        <p class="info-text">Monday: Closed</p>
+                        <p class="info-text">Monday – Friday: 11:00 AM – 10:00 PM</p>
+                        <p class="info-text">Saturday – Sunday: 10:00 AM – 11:00 PM</p>
                     </div>
                 </div>
 
@@ -1016,242 +1031,459 @@
                     </div>
                     <div>
                         <h4 class="info-title">Location</h4>
-                        <p class="info-text">Rannaghar Home Kitchen, Bally, Howrah</p>
+                        <p class="info-text">Curst & Kosha Cloud Kitchen, Bally, Howrah</p>
                         <p class="info-text">West Bengal 711201 · Delivery within 5 km</p>
-                        <a href="#" class="info-link">View on map &rarr;</a>
+                        <a href="https://maps.app.goo.gl/xXeJUyznQEAxiWdA7" class="info-link">View on map &rarr;</a>
                     </div>
                 </div>
             </section>
         </div>
 
-        <div id="menu" class="tab-content menu-container">
-            <div class="section-header" style="margin-top: 0;">
-                <h2 class="section-title">Our Bengali Menu</h2>
-                <p class="section-desc">Homestyle favourites. Call or WhatsApp to order for delivery in Bally.</p>
-            </div>
-
-            <div class="search-container">
-                <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Search dishes..." onkeyup="filterMenu()">
-            </div>
-
-            <div class="filter-tabs">
-                <button class="filter-btn active" onclick="filterCategory('All', this)">All</button>
-                <button class="filter-btn" onclick="filterCategory('Starter', this)">Starter</button>
-                <button class="filter-btn" onclick="filterCategory('Veg', this)">Veg</button>
-                <button class="filter-btn" onclick="filterCategory('Non-Veg', this)">Non-Veg</button>
-                <button class="filter-btn" onclick="filterCategory('Dessert', this)">Dessert</button>
-                <button class="filter-btn" onclick="filterCategory('Drinks', this)">Drinks</button>
-            </div>
-
-            <div class="cards-grid" id="menuGrid">
-                <div class="food-card menu-item" data-category="Non-Veg">
-                    <div class="img-container">
-                        <span class="badge">Non-Veg</span>
-                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Kosha Mangsho" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Kosha Mangsho</h3>
-                            <span class="food-price">₹320</span>
-                        </div>
-                        <p class="food-desc">Slow-cooked spicy mutton curry with caramelized onions and whole spices.</p>
-                    </div>
+        <div id="menu" class="tab-content">
+            <div class="menu-container">
+                <div class="section-header" style="margin-top: 0;">
+                    <h2 class="section-title">Our Menu</h2>
+                    <p class="section-desc">Homestyle favourites & cafe snacks. Call or WhatsApp to order for delivery in Bally.</p>
                 </div>
 
-                <div class="food-card menu-item" data-category="Non-Veg">
-                    <div class="img-container">
-                        <span class="badge">Non-Veg</span>
-                        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80" alt="Shorshe Ilish" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Shorshe Ilish</h3>
-                            <span class="food-price">₹280</span>
-                        </div>
-                        <p class="food-desc">Hilsa fish in a sharp mustard gravy — a true Bengali classic.</p>
-                    </div>
+                <div class="search-container">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search dishes..." onkeyup="filterMenu()">
                 </div>
 
-                <div class="food-card menu-item" data-category="Non-Veg">
-                    <div class="img-container">
-                        <span class="badge">Non-Veg</span>
-                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=600&q=80" alt="Chingri Malai Curry" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Chingri Malai Curry</h3>
-                            <span class="food-price">₹300</span>
-                        </div>
-                        <p class="food-desc">Tiger prawns simmered in a mildly spiced coconut milk gravy.</p>
-                    </div>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" onclick="filterCategory('All', this)">All</button>
+                    <button class="filter-btn" onclick="filterCategory('Sandwiches', this)">Sandwiches</button>
+                    <button class="filter-btn" onclick="filterCategory('Burgers', this)">Burgers</button>
+                    <button class="filter-btn" onclick="filterCategory('Pizzas', this)">Pizzas</button>
+                    <button class="filter-btn" onclick="filterCategory('Maggi', this)">Maggi</button>
+                    <button class="filter-btn" onclick="filterCategory('Pasta', this)">Pasta</button>
+                    <button class="filter-btn" onclick="filterCategory('Snacks', this)">Snacks</button>
+                    <button class="filter-btn" onclick="filterCategory('Momos', this)">Momos</button>
+                    <button class="filter-btn" onclick="filterCategory('Combos', this)">Combos</button>
+                    <button class="filter-btn" onclick="filterCategory('Bengali', this)">Bengali Combos</button>
                 </div>
 
-                <div class="food-card menu-item" data-category="Non-Veg">
-                    <div class="img-container">
-                        <span class="badge">Non-Veg</span>
-                        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80" alt="Bhetki Paturi" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Bhetki Paturi</h3>
-                            <span class="food-price">₹260</span>
+                <div class="cards-grid" id="menuGrid">
+                    
+                    <div class="food-card menu-item" data-category="Maggi">
+                        <div class="img-container">
+                            <span class="badge">Maggi</span>
+                            <img src="https://images.unsplash.com/photo-1612929633738-8fe01f7c8136?auto=format&fit=crop&w=600&q=80" alt="Plain Maggie" class="food-img">
                         </div>
-                        <p class="food-desc">Steamed bhetki fillet wrapped in banana leaf with mustard and coconut.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Plain Maggie</h3>
+                                <span class="food-price">₹50</span>
+                            </div>
+                            <p class="food-desc">The classic, comforting masala Maggi noodles.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Veg">
-                    <div class="img-container">
-                        <span class="badge">Veg</span>
-                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80" alt="Dhokar Dalna" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Dhokar Dalna</h3>
-                            <span class="food-price">₹220</span>
+                    <div class="food-card menu-item" data-category="Maggi">
+                        <div class="img-container">
+                            <span class="badge">Maggi</span>
+                            <img src="https://images.unsplash.com/photo-1612929633738-8fe01f7c8136?auto=format&fit=crop&w=600&q=80" alt="Cheese Maggie" class="food-img">
                         </div>
-                        <p class="food-desc">Fried lentil cakes in a light, flavourful tomato and ginger gravy.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Cheese Maggie</h3>
+                                <span class="food-price">₹70</span>
+                            </div>
+                            <p class="food-desc">Classic Maggi loaded with gooey melted cheese.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Veg">
-                    <div class="img-container">
-                        <span class="badge">Veg</span>
-                        <img src="https://images.unsplash.com/photo-1589647363585-f4a7d3877b10?auto=format&fit=crop&w=600&q=80" alt="Aloo Posto" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Aloo Posto</h3>
-                            <span class="food-price">₹180</span>
+                    <div class="food-card menu-item" data-category="Maggi">
+                        <div class="img-container">
+                            <span class="badge">Maggi</span>
+                            <img src="https://images.unsplash.com/photo-1612929633738-8fe01f7c8136?auto=format&fit=crop&w=600&q=80" alt="Sweet Corn Cheese Maggie" class="food-img">
                         </div>
-                        <p class="food-desc">Potatoes cooked in a silky poppy-seed paste with green chillies.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Sweet Corn Cheese Maggie</h3>
+                                <span class="food-price">₹80</span>
+                            </div>
+                            <p class="food-desc">Delicious Maggi tossed with sweet corn and rich cheese.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Veg">
-                    <div class="img-container">
-                        <span class="badge">Veg</span>
-                        <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Mishti Pulao" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Mishti Pulao</h3>
-                            <span class="food-price">₹200</span>
+                    <div class="food-card menu-item" data-category="Pasta">
+                        <div class="img-container">
+                            <span class="badge">Pasta</span>
+                            <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=600&q=80" alt="White Sauce Pasta" class="food-img">
                         </div>
-                        <p class="food-desc">Fragrant sweet rice with cashews, raisins and a hint of ghee.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">White Sauce Pasta</h3>
+                                <span class="food-price">₹149</span>
+                            </div>
+                            <p class="food-desc">Creamy and cheesy white sauce pasta garnished with mixed herbs.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Veg">
-                    <div class="img-container">
-                        <span class="badge">Veg</span>
-                        <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80" alt="Luchi with Cholar Dal" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Luchi with Cholar Dal</h3>
-                            <span class="food-price">₹190</span>
+                    <div class="food-card menu-item" data-category="Snacks">
+                        <div class="img-container">
+                            <span class="badge">Snacks</span>
+                            <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600&q=80" alt="French Fries" class="food-img">
                         </div>
-                        <p class="food-desc">Fluffy fried bread served with spiced bengal gram curry.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">French Fries</h3>
+                                <span class="food-price">₹80</span>
+                            </div>
+                            <p class="food-desc">Crispy, golden French fries seasoned to perfection.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Non-Veg">
-                    <div class="img-container">
-                        <span class="badge">Non-Veg</span>
-                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80" alt="Mutton Biryani" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Mutton Biryani</h3>
-                            <span class="food-price">₹350</span>
+                    <div class="food-card menu-item" data-category="Snacks">
+                        <div class="img-container">
+                            <span class="badge">Snacks</span>
+                            <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" alt="Fish Finger" class="food-img">
                         </div>
-                        <p class="food-desc">Aromatic long-grain rice with tender mutton, potato and boiled egg.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Fish Finger</h3>
+                                <span class="food-price">₹120</span>
+                            </div>
+                            <p class="food-desc">Crispy golden fried fish fingers, perfect for snacking.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Dessert">
-                    <div class="img-container">
-                        <span class="badge">Dessert</span>
-                        <img src="https://images.unsplash.com/photo-1589119908995-c6837fa14848?auto=format&fit=crop&w=600&q=80" alt="Rosogolla" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Rosogolla</h3>
-                            <span class="food-price">₹80</span>
+                    <div class="food-card menu-item" data-category="Snacks">
+                        <div class="img-container">
+                            <span class="badge">Snacks</span>
+                            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80" alt="Chicken Popcorn" class="food-img">
                         </div>
-                        <p class="food-desc">Soft, spongy cottage-cheese sweets in light sugar syrup (2 pcs).</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Chicken Popcorn</h3>
+                                <span class="food-price">₹110</span>
+                            </div>
+                            <p class="food-desc">Bite-sized, tender chicken chunks fried to crispy perfection.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Starter">
-                    <div class="img-container">
-                        <span class="badge">Starter</span>
-                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Beguni" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Beguni</h3>
-                            <span class="food-price">₹90</span>
+                    <div class="food-card menu-item" data-category="Snacks">
+                        <div class="img-container">
+                            <span class="badge">Snacks</span>
+                            <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" alt="Fish Fry" class="food-img">
                         </div>
-                        <p class="food-desc">Crispy gram-flour battered eggplant fritters, a classic Bengali starter.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Fish Fry</h3>
+                                <span class="food-price">₹110</span>
+                            </div>
+                            <p class="food-desc">Golden crumb-fried fish with salad on the side.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Starter">
-                    <div class="img-container">
-                        <span class="badge">Starter</span>
-                        <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" alt="Fish Fry" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Fish Fry</h3>
-                            <span class="food-price">₹160</span>
+                    <div class="food-card menu-item" data-category="Sandwiches">
+                        <div class="img-container">
+                            <span class="badge">Sandwiches</span>
+                            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Veg Grill Sandwich" class="food-img">
                         </div>
-                        <p class="food-desc">Golden crumb-fried bhetki with kasundi mustard and salad on the side.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Veg Grill Sandwich</h3>
+                                <span class="food-price">₹75</span>
+                            </div>
+                            <p class="food-desc">Freshly grilled with crisp veggies and flavorful spreads.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Dessert">
-                    <div class="img-container">
-                        <span class="badge">Dessert</span>
-                        <img src="https://images.unsplash.com/photo-1514517521153-1be72277b32f?auto=format&fit=crop&w=600&q=80" alt="Mishti Doi" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Mishti Doi</h3>
-                            <span class="food-price">₹70</span>
+                    <div class="food-card menu-item" data-category="Sandwiches">
+                        <div class="img-container">
+                            <span class="badge">Sandwiches</span>
+                            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Cheese Sandwich" class="food-img">
                         </div>
-                        <p class="food-desc">Traditional sweetened baked yoghurt served chilled in an earthen pot.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Cheese Sandwich</h3>
+                                <span class="food-price">₹65</span>
+                            </div>
+                            <p class="food-desc">Classic grilled sandwich loaded with gooey melted cheese.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Drinks">
-                    <div class="img-container">
-                        <span class="badge">Drinks</span>
-                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Aam Pora Shorbot" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Aam Pora Shorbot</h3>
-                            <span class="food-price">₹60</span>
+                    <div class="food-card menu-item" data-category="Sandwiches">
+                        <div class="img-container">
+                            <span class="badge">Sandwiches</span>
+                            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Chicken Sandwich" class="food-img">
                         </div>
-                        <p class="food-desc">Refreshing roasted raw mango cooler spiced with roasted cumin and black salt.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Chicken Sandwich</h3>
+                                <span class="food-price">₹99</span>
+                            </div>
+                            <p class="food-desc">Hearty sandwich packed with savory chicken filling.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="food-card menu-item" data-category="Drinks">
-                    <div class="img-container">
-                        <span class="badge">Drinks</span>
-                        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" alt="Gondhoraj Lebur Shorbot" class="food-img">
-                    </div>
-                    <div class="food-info">
-                        <div class="food-header">
-                            <h3 class="food-name">Gondhoraj Lebur Shorbot</h3>
-                            <span class="food-price">₹50</span>
+                    <div class="food-card menu-item" data-category="Pizzas">
+                        <div class="img-container">
+                            <span class="badge">Pizzas</span>
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Corn Cheese Pizza" class="food-img">
                         </div>
-                        <p class="food-desc">Fragrant Bengali lime lemonade served chilled with a hint of mint.</p>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Corn Cheese Pizza</h3>
+                                <span class="food-price">₹129</span>
+                            </div>
+                            <p class="food-desc">Sweet corn and mozzarella cheese on a freshly baked crust.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Pizzas">
+                        <div class="img-container">
+                            <span class="badge">Pizzas</span>
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Margarita Pizza" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Margarita</h3>
+                                <span class="food-price">₹100</span>
+                            </div>
+                            <p class="food-desc">Classic cheese and tomato pizza with fresh basil.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Pizzas">
+                        <div class="img-container">
+                            <span class="badge">Pizzas</span>
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Chicken Pizza" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Chicken Pizza</h3>
+                                <span class="food-price">₹159</span>
+                            </div>
+                            <p class="food-desc">Loaded with tender chicken pieces and melted cheese.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Pizzas">
+                        <div class="img-container">
+                            <span class="badge">Pizzas</span>
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Farmhouse Pizza" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Farmhouse Pizza</h3>
+                                <span class="food-price">₹149</span>
+                            </div>
+                            <p class="food-desc">A delightful mix of fresh vegetables and generous cheese.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Burgers">
+                        <div class="img-container">
+                            <span class="badge">Burgers</span>
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Chicken Burger" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Chicken Burger</h3>
+                                <span class="food-price">₹120</span>
+                            </div>
+                            <p class="food-desc">Juicy chicken patty with fresh lettuce, mayo and special sauces.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Burgers">
+                        <div class="img-container">
+                            <span class="badge">Burgers</span>
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Veg Burger" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Veg Burger</h3>
+                                <span class="food-price">₹100</span>
+                            </div>
+                            <p class="food-desc">Crispy veggie patty with fresh lettuce and tangy sauce.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Momos">
+                        <div class="img-container">
+                            <span class="badge">Momos</span>
+                            <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80" alt="Steamed Momo" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Steamed Momo</h3>
+                                <span class="food-price">₹99</span>
+                            </div>
+                            <p class="food-desc">Soft, steamed dumplings served with a spicy dipping sauce.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Momos">
+                        <div class="img-container">
+                            <span class="badge">Momos</span>
+                            <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80" alt="Panfried Momo" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Panfried Momo</h3>
+                                <span class="food-price">₹120</span>
+                            </div>
+                            <p class="food-desc">Dumplings pan-fried to a crispy perfection with savory sauce.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Momos">
+                        <div class="img-container">
+                            <span class="badge">Momos</span>
+                            <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80" alt="Fried Momo" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Fried Momo</h3>
+                                <span class="food-price">₹110</span>
+                            </div>
+                            <p class="food-desc">Deep-fried dumplings for that extra crunchy bite.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Combos">
+                        <div class="img-container">
+                            <span class="badge">Combos</span>
+                            <img src="https://images.unsplash.com/photo-1594212699903-eca8548cc473?auto=format&fit=crop&w=600&q=80" alt="Vege Burger Combo" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Veg Burger Combo</h3>
+                                <span class="food-price">₹199</span>
+                            </div>
+                            <p class="food-desc">Veg Burger + Fresh Fries + Coke.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Combos">
+                        <div class="img-container">
+                            <span class="badge">Combos</span>
+                            <img src="https://images.unsplash.com/photo-1594212699903-eca8548cc473?auto=format&fit=crop&w=600&q=80" alt="Chicken Burger Combo" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Chicken Burger Combo</h3>
+                                <span class="food-price">₹199</span>
+                            </div>
+                            <p class="food-desc">Chicken Burger + French Fries + Coke.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Combos">
+                        <div class="img-container">
+                            <span class="badge">Combos</span>
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Veg Pizza Combo" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Veg Pizza Combo</h3>
+                                <span class="food-price">₹219</span>
+                            </div>
+                            <p class="food-desc">Veg Pizza + French Fries + Coke.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Combos">
+                        <div class="img-container">
+                            <span class="badge">Combos</span>
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Chicken Pizza Combo" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Chicken Pizza Combo</h3>
+                                <span class="food-price">₹249</span>
+                            </div>
+                            <p class="food-desc">Chicken Pizza + Chicken Popcorn + Coke.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Bengali">
+                        <div class="img-container">
+                            <span class="badge">Bengali</span>
+                            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Polao + Chicken Kosha Combo" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Polao + Chicken Kosha</h3>
+                                <span class="food-price">₹179</span>
+                            </div>
+                            <p class="food-desc">Fragrant polao with our rich, spicy chicken kosha.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Bengali">
+                        <div class="img-container">
+                            <span class="badge">Bengali</span>
+                            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Polao + Alur Dom" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Polao + Alur Dom</h3>
+                                <span class="food-price">₹120</span>
+                            </div>
+                            <p class="food-desc">Fragrant sweet polao served with classic alur dom.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Bengali">
+                        <div class="img-container">
+                            <span class="badge">Bengali</span>
+                            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80" alt="Paratha + Alur Dom" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Paratha 3pc + Alur Dom</h3>
+                                <span class="food-price">₹99</span>
+                            </div>
+                            <p class="food-desc">Soft, layered parathas with delicious spicy potato curry.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Bengali">
+                        <div class="img-container">
+                            <span class="badge">Bengali</span>
+                            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80" alt="Paratha + Chicken Kosha" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Paratha 3pc + Chicken Kosha</h3>
+                                <span class="food-price">₹159</span>
+                            </div>
+                            <p class="food-desc">Layered parathas served with signature chicken kosha.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Bengali">
+                        <div class="img-container">
+                            <span class="badge">Bengali</span>
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Mutton Kosha 2pc" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Mutton Kosha 2pc</h3>
+                                <span class="food-price">₹180</span>
+                            </div>
+                            <p class="food-desc">Slow-cooked, dark, rich and spicy mutton curry.</p>
+                        </div>
+                    </div>
+
+                    <div class="food-card menu-item" data-category="Bengali">
+                        <div class="img-container">
+                            <span class="badge">Bengali</span>
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Mutton Jhol with Alu" class="food-img">
+                        </div>
+                        <div class="food-info">
+                            <div class="food-header">
+                                <h3 class="food-name">Mutton Jhol with Alu</h3>
+                                <span class="food-price">₹200 / ₹320</span>
+                            </div>
+                            <p class="food-desc">Light homestyle mutton curry with potatoes. (2pc: ₹200 | 4pc: ₹320)</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1259,23 +1491,23 @@
 
         <div id="about" class="tab-content about-container">
             <div class="section-header" style="margin-top: 0;">
-                <h2 class="section-title">About Rannaghar</h2>
-                <p class="section-desc">A small home kitchen in Bally with one big goal: to serve you the comforting, authentic taste of Bengali home cooking.</p>
+                <h2 class="section-title">About Curst & Kosha</h2>
+                <p class="section-desc">A small cloud kitchen in Bally with one big goal: to serve you the freshest, most comforting cafe-style snacks and meals.</p>
             </div>
 
             <div class="about-grid">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80" alt="Traditional Bengali Feast" class="about-img">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Curst & Kosha Spread" class="about-img">
                 </div>
                 <div class="about-text">
-                    <h3>Made Like It Is At Home</h3>
-                    <p>Rannaghar started with a simple belief: the best Bengali food is the kind cooked at home. We do not use mass-production shortcuts or frozen bases. Every masala is ground fresh, every curry is simmered slowly, and every plate is packed with the same care we would serve our own family.</p>
-                    <p>From Kosha Mangsho on a Sunday afternoon to Shorshe Ilish when the season is right, our menu celebrates the everyday food Bengali households love.</p>
+                    <h3>Fresh & Crave-Worthy</h3>
+                    <p>Curst & Kosha started with a simple belief: your favorite cafe-style snacks should taste fresh and comforting, right in your own home. We do not use stale shortcuts. From our loaded pizzas to our perfectly grilled sandwiches, every order is prepared fresh, packed carefully, and made with the same love we would serve our own family.</p>
+                    <p>Whether you are craving a late-night bowl of Maggi, a juicy burger, a creamy pasta, or a quick snack to fuel your day, our menu celebrates the ultimate comfort foods you love most.</p>
 
                     <div class="about-features">
                         <div class="about-feature-card">
                             <h4>Fresh Daily</h4>
-                            <p>Vegetables, fish, and meats bought fresh every morning.</p>
+                            <p>Ingredients bought fresh every morning.</p>
                         </div>
                         <div class="about-feature-card">
                             <h4>No Apps Needed</h4>
@@ -1286,8 +1518,8 @@
                             <p>Hot meals delivered quickly across Bally.</p>
                         </div>
                         <div class="about-feature-card">
-                            <h4>Homestyle Recipes</h4>
-                            <p>Traditional recipes passed down through generations.</p>
+                            <h4>Homestyle Touch</h4>
+                            <p>Every snack is prepared with a mother's touch.</p>
                         </div>
                     </div>
                 </div>
@@ -1339,13 +1571,15 @@
                             <label class="form-label" for="custDish">Select Dish / Cravings *</label>
                             <select id="custDish" class="form-select" required>
                                 <option value="" disabled selected>-- Select a Signature Dish --</option>
-                                <option value="Kosha Mangsho (₹320)">Kosha Mangsho - ₹320</option>
-                                <option value="Shorshe Ilish (₹280)">Shorshe Ilish - ₹280</option>
-                                <option value="Chingri Malai Curry (₹300)">Chingri Malai Curry - ₹300</option>
-                                <option value="Bhetki Paturi (₹260)">Bhetki Paturi - ₹260</option>
-                                <option value="Mutton Biryani (₹350)">Mutton Biryani - ₹350</option>
-                                <option value="Dhokar Dalna (₹220)">Dhokar Dalna - ₹220</option>
-                                <option value="Luchi with Cholar Dal (₹190)">Luchi with Cholar Dal - ₹190</option>
+                                <option value="Chicken Burger (₹120)">Chicken Burger - ₹120</option>
+                                <option value="Chicken Pizza (₹159)">Chicken Pizza - ₹159</option>
+                                <option value="White Sauce Pasta (₹149)">White Sauce Pasta - ₹149</option>
+                                <option value="Cheese Maggie (₹70)">Cheese Maggie - ₹70</option>
+                                <option value="French Fries (₹80)">French Fries - ₹80</option>
+                                <option value="Chicken Popcorn (₹110)">Chicken Popcorn - ₹110</option>
+                                <option value="Veg Grill Sandwich (₹75)">Veg Grill Sandwich - ₹75</option>
+                                <option value="Steamed Momo (₹99)">Steamed Momo - ₹99</option>
+                                <option value="Polao + Chicken Kosha (₹179)">Polao + Chicken Kosha - ₹179</option>
                                 <option value="Multiple Dishes (Listed in Notes)">Multiple Items / Custom Order</option>
                             </select>
                         </div>
@@ -1355,7 +1589,7 @@
                         </div>
                         <div class="form-group full-width">
                             <label class="form-label" for="custNotes">Special Instructions / Additional Dishes (Optional)</label>
-                            <textarea id="custNotes" class="form-textarea" placeholder="e.g. Make it medium spicy, add 2 pcs Rosogolla, deliver by 1:30 PM..."></textarea>
+                            <textarea id="custNotes" class="form-textarea" placeholder="e.g. Make it extra spicy, add 1 Plain Maggie, deliver by 1:30 PM..."></textarea>
                         </div>
                     </div>
                     <button type="submit" class="form-submit-btn">
@@ -1372,17 +1606,14 @@
                         <h4>Opening Hours</h4>
                     </div>
                     <div class="hours-row">
-                        <span>Tuesday – Friday</span>
+                        <span>Monday – Friday</span>
                         <span>11:00 AM – 10:00 PM</span>
                     </div>
                     <div class="hours-row">
                         <span>Saturday – Sunday</span>
                         <span>10:00 AM – 11:00 PM</span>
                     </div>
-                    <div class="hours-row closed">
-                        <span>Monday</span>
-                        <span>Closed</span>
-                    </div>
+                    
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1.25rem;">Last order 30 minutes before closing.</p>
                 </div>
 
@@ -1392,12 +1623,12 @@
                         <h4>Our Location</h4>
                     </div>
                     <div class="location-text">
-                        <strong>Rannaghar Home Kitchen</strong><br>
+                        <strong>Curst & Kosha Cloud Kitchen</strong><br>
                         Bally, Howrah<br>
                         West Bengal 711201, India
                     </div>
-                    <p style="font-size: 0.85rem; color: var(--text-dark); margin-bottom: 1.25rem;"><strong>Delivery Area:</strong> Bally & nearby localities (within 5 km)</p>
-                    <a href="https://maps.google.com/?q=Bally,Howrah,West+Bengal" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.4rem 1rem;">
+                    <p style="font-size: 0.85rem; color: var(--text-dark); margin-bottom: 1.25rem;"><strong>Delivery Area:</strong> Bally & nearby localities (within 3 km)</p>
+                    <a href="https://maps.app.goo.gl/xXeJUyznQEAxiWdA7" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.4rem 1rem;">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                         Open in Google Maps
                     </a>
@@ -1413,8 +1644,8 @@
     <footer>
         <div class="footer-grid">
             <div>
-                <div class="footer-brand">Rannaghar</div>
-                <p>Authentic Bengali home kitchen serving fresh, homestyle meals in Bally.</p>
+                <div class="footer-brand">Curst & Kosha</div>
+                <p>Fresh eats from home, serving comforting snacks and homestyle meals in Bally.</p>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -1491,7 +1722,7 @@
             const address = document.getElementById('custAddress').value;
             const notes = document.getElementById('custNotes').value || "None";
             
-            const message = `*🍳 NEW ORDER FROM RANNAGHAR WEBSITE*%0A%0A` +
+            const message = `*🍳 NEW ORDER FROM CURST & KOSHA WEBSITE*%0A%0A` +
                             `*Customer Name:* ${name}%0A` +
                             `*Phone Number:* ${phone}%0A` +
                             `*Selected Dish:* ${dish}%0A` +
