@@ -96,6 +96,25 @@
             background-color: var(--terracotta);
         }
 
+        @keyframes pulse-highlight {
+            0%, 100% {
+                color: var(--terracotta);
+                transform: scale(1);
+                text-shadow: 0 0 0px transparent;
+            }
+            50% {
+                color: #e63900;
+                transform: scale(1.05);
+                text-shadow: 0 0 8px rgba(230, 57, 0, 0.4);
+            }
+        }
+
+        .highlight-tab {
+            animation: pulse-highlight 1.5s infinite ease-in-out;
+            font-weight: 700;
+            display: inline-block;
+        }
+
         .header-actions {
             display: flex;
             align-items: center;
@@ -494,6 +513,12 @@
             border-color: var(--terracotta);
         }
 
+        .order-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
         .about-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -722,6 +747,52 @@
             box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
         }
 
+        .order-builder {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .order-list {
+            list-style: none;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-main);
+            overflow: hidden;
+        }
+
+        .order-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .order-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .remove-btn {
+            color: #DC2626;
+            cursor: pointer;
+            font-weight: bold;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .empty-cart {
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
         .contact-mid-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -832,6 +903,39 @@
             color: var(--terracotta);
         }
 
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-socials a {
+            color: var(--text-muted);
+            background: var(--bg-alt);
+            padding: 0.6rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .footer-socials a:hover {
+            color: #FFFFFF;
+            background: var(--terracotta);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
         @media (max-width: 1024px) {
             .cards-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -867,6 +971,14 @@
             .footer-grid {
                 grid-template-columns: 1fr;
             }
+
+            .order-builder {
+                flex-direction: column;
+            }
+
+            .order-builder input, .order-builder button {
+                width: 100% !important;
+            }
         }
     </style>
 </head>
@@ -880,6 +992,7 @@
             <ul class="nav-tabs">
                 <li class="nav-tab active" onclick="switchTab('home')">Home</li>
                 <li class="nav-tab" onclick="switchTab('menu')">Menu</li>
+                <li class="nav-tab highlight-tab" onclick="switchTab('order')">Order Now</li>
                 <li class="nav-tab" onclick="switchTab('about')">About Us</li>
                 <li class="nav-tab" onclick="switchTab('contact')">Contact</li>
             </ul>
@@ -1489,6 +1602,90 @@
             </div>
         </div>
 
+        <div id="order" class="tab-content order-container">
+            <div class="section-header" style="margin-top: 0;">
+                <h2 class="section-title">Place Your Order</h2>
+                <p class="section-desc">Build your order below and send it directly to us via WhatsApp.</p>
+            </div>
+            
+            <div class="form-card">
+                <div class="form-header">
+                    <h3>⚡ Quick WhatsApp Order Form</h3>
+                    <p>Fill out your details and click below to send your order directly to our WhatsApp!</p>
+                </div>
+                <form id="waOrderForm" onsubmit="sendToWhatsApp(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="custName">Your Name *</label>
+                            <input type="text" id="custName" class="form-input" placeholder="e.g. Rahul Mukherjee" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="custPhone">Phone Number *</label>
+                            <input type="tel" id="custPhone" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label class="form-label">Build Your Order *</label>
+                            <div class="order-builder">
+                                <select id="itemSelect" class="form-select" style="flex: 1;">
+                                    <option value="" disabled selected>-- Select a Dish --</option>
+                                    <option value="Chicken Burger - ₹120">Chicken Burger - ₹120</option>
+                                    <option value="Veg Burger - ₹100">Veg Burger - ₹100</option>
+                                    <option value="Chicken Pizza - ₹159">Chicken Pizza - ₹159</option>
+                                    <option value="Corn Cheese Pizza - ₹129">Corn Cheese Pizza - ₹129</option>
+                                    <option value="Margarita Pizza - ₹100">Margarita Pizza - ₹100</option>
+                                    <option value="Farmhouse Pizza - ₹149">Farmhouse Pizza - ₹149</option>
+                                    <option value="White Sauce Pasta - ₹149">White Sauce Pasta - ₹149</option>
+                                    <option value="Plain Maggie - ₹50">Plain Maggie - ₹50</option>
+                                    <option value="Cheese Maggie - ₹70">Cheese Maggie - ₹70</option>
+                                    <option value="Sweet Corn Cheese Maggie - ₹80">Sweet Corn Cheese Maggie - ₹80</option>
+                                    <option value="French Fries - ₹80">French Fries - ₹80</option>
+                                    <option value="Fish Finger - ₹120">Fish Finger - ₹120</option>
+                                    <option value="Chicken Popcorn - ₹110">Chicken Popcorn - ₹110</option>
+                                    <option value="Fish Fry - ₹110">Fish Fry - ₹110</option>
+                                    <option value="Veg Grill Sandwich - ₹75">Veg Grill Sandwich - ₹75</option>
+                                    <option value="Cheese Sandwich - ₹65">Cheese Sandwich - ₹65</option>
+                                    <option value="Chicken Sandwich - ₹99">Chicken Sandwich - ₹99</option>
+                                    <option value="Steamed Momo - ₹99">Steamed Momo - ₹99</option>
+                                    <option value="Panfried Momo - ₹120">Panfried Momo - ₹120</option>
+                                    <option value="Fried Momo - ₹110">Fried Momo - ₹110</option>
+                                    <option value="Veg Burger Combo - ₹199">Veg Burger Combo - ₹199</option>
+                                    <option value="Chicken Burger Combo - ₹199">Chicken Burger Combo - ₹199</option>
+                                    <option value="Veg Pizza Combo - ₹219">Veg Pizza Combo - ₹219</option>
+                                    <option value="Chicken Pizza Combo - ₹249">Chicken Pizza Combo - ₹249</option>
+                                    <option value="Polao + Chicken Kosha - ₹179">Polao + Chicken Kosha - ₹179</option>
+                                    <option value="Polao + Alur Dom - ₹120">Polao + Alur Dom - ₹120</option>
+                                    <option value="Paratha 3pc + Alur Dom - ₹99">Paratha 3pc + Alur Dom - ₹99</option>
+                                    <option value="Paratha 3pc + Chicken Kosha - ₹159">Paratha 3pc + Chicken Kosha - ₹159</option>
+                                    <option value="Mutton Kosha 2pc - ₹180">Mutton Kosha 2pc - ₹180</option>
+                                    <option value="Mutton Jhol with Alu 2pc - ₹200">Mutton Jhol with Alu 2pc - ₹200</option>
+                                    <option value="Mutton Jhol with Alu 4pc - ₹320">Mutton Jhol with Alu 4pc - ₹320</option>
+                                </select>
+                                <input type="number" id="itemQty" class="form-input" min="1" value="1" style="width: 80px;">
+                                <button type="button" class="btn btn-terracotta" onclick="addItem()" style="border-radius: 10px; padding: 0.8rem 1.5rem; height: 100%;">Add</button>
+                            </div>
+                            <ul id="orderList" class="order-list">
+                                <li class="empty-cart">No items added yet.</li>
+                            </ul>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label" for="custAddress">Delivery Address in Bally *</label>
+                            <input type="text" id="custAddress" class="form-input" placeholder="House/Flat No, Street Name, Nearest Landmark" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="form-label" for="custNotes">Special Instructions (Optional)</label>
+                            <textarea id="custNotes" class="form-textarea" placeholder="e.g. Make it extra spicy, deliver by 1:30 PM..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="form-submit-btn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        Send Order to WhatsApp &rarr;
+                    </button>
+                </form>
+            </div>
+        </div>
+
         <div id="about" class="tab-content about-container">
             <div class="section-header" style="margin-top: 0;">
                 <h2 class="section-title">About Curst & Kosha</h2>
@@ -1497,7 +1694,7 @@
 
             <div class="about-grid">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Curst & Kosha Kitchen" class="about-img">
+                    <img src="Screenshot 2026-08-02 035944.jpg" alt="Curst & Kosha Kitchen" class="about-img">
                 </div>
                 <div class="about-text">
                     <h3>Fresh & Crave-Worthy</h3>
@@ -1550,53 +1747,6 @@
                     <p>Message us your order anytime.</p>
                     <a href="https://wa.me/917044487197" class="btn btn-wa-green">Send Message</a>
                 </div>
-            </div>
-
-            <div class="form-card">
-                <div class="form-header">
-                    <h3>⚡ Quick WhatsApp Order Form</h3>
-                    <p>Fill out your details and click below to send your order directly to our WhatsApp!</p>
-                </div>
-                <form id="waOrderForm" onsubmit="sendToWhatsApp(event)">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label" for="custName">Your Name *</label>
-                            <input type="text" id="custName" class="form-input" placeholder="e.g. Rahul Mukherjee" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="custPhone">Phone Number *</label>
-                            <input type="tel" id="custPhone" class="form-input" placeholder="e.g. +91 98765 43210" required>
-                        </div>
-                        <div class="form-group full-width">
-                            <label class="form-label" for="custDish">Select Dish / Cravings *</label>
-                            <select id="custDish" class="form-select" required>
-                                <option value="" disabled selected>-- Select a Signature Dish --</option>
-                                <option value="Chicken Burger (₹120)">Chicken Burger - ₹120</option>
-                                <option value="Chicken Pizza (₹159)">Chicken Pizza - ₹159</option>
-                                <option value="White Sauce Pasta (₹149)">White Sauce Pasta - ₹149</option>
-                                <option value="Cheese Maggie (₹70)">Cheese Maggie - ₹70</option>
-                                <option value="French Fries (₹80)">French Fries - ₹80</option>
-                                <option value="Chicken Popcorn (₹110)">Chicken Popcorn - ₹110</option>
-                                <option value="Veg Grill Sandwich (₹75)">Veg Grill Sandwich - ₹75</option>
-                                <option value="Steamed Momo (₹99)">Steamed Momo - ₹99</option>
-                                <option value="Polao + Chicken Kosha (₹179)">Polao + Chicken Kosha - ₹179</option>
-                                <option value="Multiple Dishes (Listed in Notes)">Multiple Items / Custom Order</option>
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <label class="form-label" for="custAddress">Delivery Address in Bally *</label>
-                            <input type="text" id="custAddress" class="form-input" placeholder="House/Flat No, Street Name, Nearest Landmark" required>
-                        </div>
-                        <div class="form-group full-width">
-                            <label class="form-label" for="custNotes">Special Instructions / Additional Dishes (Optional)</label>
-                            <textarea id="custNotes" class="form-textarea" placeholder="e.g. Make it extra spicy, add 1 Plain Maggie, deliver by 1:30 PM..."></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="form-submit-btn">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                        Send Order to WhatsApp &rarr;
-                    </button>
-                </form>
             </div>
 
             <div class="contact-mid-grid">
@@ -1652,19 +1802,34 @@
                 <ul class="footer-links">
                     <li><a href="#" onclick="switchTab('home')">Home</a></li>
                     <li><a href="#" onclick="switchTab('menu')">Menu</a></li>
+                    <li><a href="#" onclick="switchTab('order')">Order</a></li>
                     <li><a href="#" onclick="switchTab('about')">About Us</a></li>
                     <li><a href="#" onclick="switchTab('contact')">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Order Now</h4>
-                <p>Call: +91 7044487197</p>
+                <h4>Connect With Us</h4>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/share/1Ess8MxQqU/" target="_blank" title="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://wa.me/917044487197" target="_blank" title="WhatsApp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </a>
+                    <a href="tel:+917044487197" title="Call Us">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </a>
+                </div>
             </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Curst & Kosha. All rights reserved.
         </div>
     </footer>
 
     <script>
         let currentCategory = 'All';
+        let orderItems = [];
 
         function switchTab(tabId) {
             const tabs = document.querySelectorAll('.tab-content');
@@ -1675,7 +1840,7 @@
             
             document.getElementById(tabId).classList.add('active');
             
-            const tabOrder = ['home', 'menu', 'about', 'contact'];
+            const tabOrder = ['home', 'menu', 'order', 'about', 'contact'];
             const activeIndex = tabOrder.indexOf(tabId);
             if(activeIndex !== -1) {
                 navs[activeIndex].classList.add('active');
@@ -1713,26 +1878,76 @@
             });
         }
 
+        function addItem() {
+            const select = document.getElementById('itemSelect');
+            const qty = document.getElementById('itemQty').value;
+            if (!select.value || qty < 1) return;
+
+            const itemName = select.options[select.selectedIndex].value;
+            
+            const existingItemIndex = orderItems.findIndex(item => item.name === itemName);
+            if (existingItemIndex > -1) {
+                orderItems[existingItemIndex].qty += parseInt(qty);
+            } else {
+                orderItems.push({ name: itemName, qty: parseInt(qty) });
+            }
+            
+            updateOrderList();
+            select.selectedIndex = 0;
+            document.getElementById('itemQty').value = 1;
+        }
+
+        function removeItem(index) {
+            orderItems.splice(index, 1);
+            updateOrderList();
+        }
+
+        function updateOrderList() {
+            const list = document.getElementById('orderList');
+            list.innerHTML = '';
+            
+            if (orderItems.length === 0) {
+                list.innerHTML = '<li class="empty-cart">No items added yet.</li>';
+                return;
+            }
+            
+            orderItems.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'order-list-item';
+                li.innerHTML = `<span><strong>${item.qty}x</strong> ${item.name}</span> <button type="button" class="remove-btn" onclick="removeItem(${index})">&times;</button>`;
+                list.appendChild(li);
+            });
+        }
+
         function sendToWhatsApp(event) {
             event.preventDefault();
             
+            if (orderItems.length === 0) {
+                alert("Please add at least one item to your order.");
+                return;
+            }
+            
             const name = document.getElementById('custName').value;
             const phone = document.getElementById('custPhone').value;
-            const dish = document.getElementById('custDish').value;
             const address = document.getElementById('custAddress').value;
             const notes = document.getElementById('custNotes').value || "None";
             
-            const message = `*🍳 NEW ORDER FROM CURST & KOSHA WEBSITE*%0A%0A` +
-                            `*Customer Name:* ${name}%0A` +
-                            `*Phone Number:* ${phone}%0A` +
-                            `*Selected Dish:* ${dish}%0A` +
-                            `*Delivery Address:* ${address}%0A` +
-                            `*Special Instructions / Notes:* ${notes}%0A%0A` +
+            let orderText = "";
+            orderItems.forEach(item => {
+                orderText += `- ${item.qty}x ${item.name}\n`;
+            });
+            
+            const message = `*🍳 NEW ORDER FROM CURST & KOSHA WEBSITE*\n\n` +
+                            `*Customer Name:* ${name}\n` +
+                            `*Phone Number:* ${phone}\n` +
+                            `*Order Details:*\n${orderText}\n` +
+                            `*Delivery Address:* ${address}\n` +
+                            `*Special Instructions:* ${notes}\n\n` +
                             `_Please confirm if this order can be processed!_`;
             
             const ownerPhone = "917044487197";
             
-            const waURL = `https://wa.me/${ownerPhone}?text=${message}`;
+            const waURL = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(message)}`;
             window.open(waURL, '_blank');
         }
     </script>
