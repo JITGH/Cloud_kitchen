@@ -1,1955 +1,2709 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curst & Kosha - Fresh Eats From Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crust & Kosha - Fresh Eats From Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --bg-main: #FAF7F2;
-            --bg-alt: #EFECE6;
-            --card-bg: #FFFFFF;
-            --terracotta: #C85A32;
-            --terracotta-hover: #B04B27;
-            --text-dark: #2B1A15;
-            --text-muted: #786862;
-            --border-color: #E8E2D9;
-            --font-serif: 'DM Serif Display', Georgia, serif;
-            --font-sans: 'Plus Jakarta Sans', sans-serif;
-        }
+      :root {
+        --bg-main: #faf7f2;
+        --bg-alt: #efece6;
+        --card-bg: #ffffff;
+        --terracotta: #c85a32;
+        --terracotta-hover: #b04b27;
+        --text-dark: #2b1a15;
+        --text-muted: #786862;
+        --border-color: #e8e2d9;
+        --font-serif: "DM Serif Display", Georgia, serif;
+        --font-sans: "Plus Jakarta Sans", sans-serif;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-dark);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+      body {
+        background-color: var(--bg-main);
+        color: var(--text-dark);
+        font-family: var(--font-sans);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
 
-        header {
-            background-color: var(--bg-main);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+      header {
+        background-color: var(--bg-main);
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
 
-        .header-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .header-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        
-        .logo img {
-            height: 70px;
-            width: 70px;
-            object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
 
-        .nav-tabs {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+      .logo img {
+        height: 70px;
+        width: 70px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
 
-        .nav-tab {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            padding-bottom: 0.25rem;
-            position: relative;
-            transition: color 0.2s ease;
-        }
+      .nav-tabs {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
 
-        .nav-tab:hover, .nav-tab.active {
-            color: var(--terracotta);
-        }
+      .nav-tab {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        padding-bottom: 0.25rem;
+        position: relative;
+        transition: color 0.2s ease;
+      }
 
-        .nav-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1rem;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--terracotta);
-        }
+      .nav-tab:hover,
+      .nav-tab.active {
+        color: var(--terracotta);
+      }
 
-        @keyframes pulse-highlight {
-            0%, 100% {
-                color: var(--terracotta);
-                transform: scale(1);
-                text-shadow: 0 0 0px transparent;
-            }
-            50% {
-                color: #e63900;
-                transform: scale(1.05);
-                text-shadow: 0 0 8px rgba(230, 57, 0, 0.4);
-            }
-        }
+      .nav-tab.active::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--terracotta);
+      }
 
-        .highlight-tab {
-            animation: pulse-highlight 1.5s infinite ease-in-out;
-            font-weight: 700;
-            display: inline-block;
+      @keyframes pulse-highlight {
+        0%,
+        100% {
+          color: var(--terracotta);
+          transform: scale(1);
+          text-shadow: 0 0 0px transparent;
         }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
+        50% {
+          color: #e63900;
+          transform: scale(1.05);
+          text-shadow: 0 0 8px rgba(230, 57, 0, 0.4);
         }
+      }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.35rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
+      .highlight-tab {
+        animation: pulse-highlight 1.5s infinite ease-in-out;
+        font-weight: 700;
+        display: inline-block;
+      }
 
-        .btn-outline {
-            border: 1px solid var(--border-color);
-            background: var(--card-bg);
-            color: var(--text-dark);
-        }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+      }
 
-        .btn-outline:hover {
-            border-color: var(--text-dark);
-        }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.35rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
 
-        .btn-terracotta {
-            background-color: var(--terracotta);
-            color: #FFFFFF;
-            border: none;
-        }
+      .btn-outline {
+        border: 1px solid var(--border-color);
+        background: var(--card-bg);
+        color: var(--text-dark);
+      }
 
-        .btn-terracotta:hover {
-            background-color: var(--terracotta-hover);
-        }
+      .btn-outline:hover {
+        border-color: var(--text-dark);
+      }
 
-        .btn-white {
-            background-color: #FFFFFF;
-            color: var(--terracotta);
-            border: none;
-        }
+      .btn-terracotta {
+        background-color: var(--terracotta);
+        color: #ffffff;
+        border: none;
+      }
 
-        .btn-white-outline {
-            border: 1px solid #FFFFFF;
-            color: #FFFFFF;
-            background: transparent;
-        }
+      .btn-terracotta:hover {
+        background-color: var(--terracotta-hover);
+      }
 
-        .btn-white-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
+      .btn-white {
+        background-color: #ffffff;
+        color: var(--terracotta);
+        border: none;
+      }
 
-        main {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
+      .btn-white-outline {
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        background: transparent;
+      }
 
-        .tab-content {
-            display: none;
-        }
+      .btn-white-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
 
-        .tab-content.active {
-            display: block;
-        }
+      main {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
 
-        .hero-section {
-            position: relative;
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(rgba(250, 247, 242, 0.85), rgba(250, 247, 242, 0.85)), url('back.jpeg') center/cover no-repeat;
-            border-bottom: 1px solid var(--border-color);
-        }
+      .tab-content {
+        display: none;
+      }
 
-        .hero-eyebrow {
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            color: var(--terracotta);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
-        }
+      .tab-content.active {
+        display: block;
+      }
 
-        .hero-title {
-            font-family: var(--font-serif);
-            font-size: 4.5rem;
-            color: var(--text-dark);
-            line-height: 1.1;
-            max-width: 800px;
-            text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.95);
-        }
+      .hero-section {
+        position: relative;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4rem 2rem;
+        background:
+          linear-gradient(rgba(250, 247, 242, 0.85), rgba(250, 247, 242, 0.85)),
+          url("back.jpeg") center/cover no-repeat;
+        border-bottom: 1px solid var(--border-color);
+      }
 
-        .hero-subtitle {
-            font-family: var(--font-serif);
-            font-size: 4.5rem;
-            color: var(--terracotta);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.95);
-        }
+      .hero-eyebrow {
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: var(--terracotta);
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+      }
 
-        .section-header {
-            text-align: center;
-            margin: 4rem 0 2.5rem;
-        }
+      .hero-title {
+        font-family: var(--font-serif);
+        font-size: 4.5rem;
+        color: var(--text-dark);
+        line-height: 1.1;
+        max-width: 800px;
+        text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.95);
+      }
 
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
+      .hero-subtitle {
+        font-family: var(--font-serif);
+        font-size: 4.5rem;
+        color: var(--terracotta);
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.95);
+      }
 
-        .section-desc {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
+      .section-header {
+        text-align: center;
+        margin: 4rem 0 2.5rem;
+      }
 
+      .section-title {
+        font-family: var(--font-serif);
+        font-size: 2.5rem;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .section-desc {
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        padding: 0 2rem;
+      }
+
+      .food-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        position: relative;
+      }
+
+      .food-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+      }
+
+      .img-container {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        background: #e8e2d9;
+      }
+
+      .food-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--text-dark);
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(4px);
+      }
+
+      .food-info {
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .food-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 0.5rem;
+      }
+
+      .food-name {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        color: var(--text-dark);
+      }
+
+      .food-price {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        color: var(--terracotta);
+        font-size: 1.1rem;
+      }
+
+      .food-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .center-btn-wrapper {
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .why-order-section {
+        background-color: var(--bg-alt);
+        padding: 4rem 2rem;
+        margin-top: 4rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .feature-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        border: 1px solid var(--border-color);
+      }
+
+      .feature-icon {
+        color: var(--terracotta);
+        margin-bottom: 1rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .feature-title {
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .banner-cta {
+        background-color: var(--terracotta);
+        color: #ffffff;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+
+      .banner-title {
+        font-family: var(--font-serif);
+        font-size: 2.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .banner-desc {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .banner-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .info-section {
+        padding: 3rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .info-block {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .info-icon {
+        color: var(--terracotta);
+        margin-top: 0.2rem;
+      }
+
+      .info-title {
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .info-text {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .info-link {
+        display: inline-block;
+        color: var(--terracotta);
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none;
+        margin-top: 0.5rem;
+      }
+
+      #menu {
+        background:
+          linear-gradient(rgba(250, 247, 242, 0.85), rgba(250, 247, 242, 0.85)),
+          url("back.jpeg") center/cover fixed;
+        min-height: 100vh;
+      }
+
+      .menu-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      .search-container {
+        max-width: 600px;
+        margin: 0 auto 1.5rem;
+        position: relative;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 0.9rem 1.25rem 0.9rem 3rem;
+        border-radius: 50px;
+        border: 1px solid var(--border-color);
+        background: var(--card-bg);
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        color: var(--text-dark);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .search-input:focus {
+        border-color: var(--terracotta);
+        box-shadow: 0 0 0 3px rgba(200, 90, 50, 0.1);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 1.2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+      }
+
+      .filter-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+
+      .filter-btn {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 0.5rem 1.25rem;
+        border-radius: 50px;
+        font-family: var(--font-sans);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .filter-btn:hover {
+        border-color: var(--text-muted);
+      }
+
+      .filter-btn.active {
+        background: var(--terracotta);
+        color: #ffffff;
+        border-color: var(--terracotta);
+      }
+
+      .order-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .about-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5rem;
+        align-items: center;
+        margin-top: 3rem;
+      }
+
+      .about-img {
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      }
+
+      .about-text h3 {
+        font-family: var(--font-serif);
+        font-size: 2.25rem;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .about-text p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .about-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .about-feature-card {
+        background: var(--bg-alt);
+        padding: 1.25rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+      }
+
+      .about-feature-card h4 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 0.35rem;
+      }
+
+      .about-feature-card p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-bottom: 0;
+        line-height: 1.4;
+      }
+
+      .contact-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .contact-top-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-card-lg {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2.5rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--bg-alt);
+        color: var(--terracotta);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .contact-card-icon.wa {
+        background: #dcfce7;
+        color: #16a34a;
+      }
+
+      .contact-card-lg h3 {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        margin-bottom: 0.25rem;
+      }
+
+      .contact-card-lg p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+      }
+
+      .btn-wa-green {
+        background: #25d366;
+        color: white;
+        border: none;
+      }
+
+      .btn-wa-green:hover {
+        background: #1da851;
+      }
+
+      .form-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      }
+
+      .form-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .form-header h3 {
+        font-family: var(--font-serif);
+        font-size: 1.8rem;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .form-header p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .form-group.full-width {
+        grid-column: span 2;
+      }
+
+      .form-label {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+
+      .form-input,
+      .form-textarea,
+      .form-select {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        background: var(--bg-main);
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        color: var(--text-dark);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .form-input:focus,
+      .form-textarea:focus,
+      .form-select:focus {
+        border-color: #25d366;
+        box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
+        background: var(--card-bg);
+      }
+
+      .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .form-submit-btn {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 50px;
+        background: #25d366;
+        color: white;
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        transition: all 0.2s ease;
+        margin-top: 1rem;
+      }
+
+      .form-submit-btn:hover {
+        background: #1da851;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
+      }
+
+      .order-builder {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .order-list {
+        list-style: none;
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        background: var(--bg-main);
+        overflow: hidden;
+      }
+
+      .order-list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.9rem;
+        color: var(--text-dark);
+      }
+
+      .order-list-item:last-child {
+        border-bottom: none;
+      }
+
+      .remove-btn {
+        color: #dc2626;
+        cursor: pointer;
+        font-weight: bold;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        padding: 0;
+        line-height: 1;
+      }
+
+      .empty-cart {
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .contact-mid-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-info-card {
+        background: var(--bg-alt);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 1.75rem;
+      }
+
+      .contact-info-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .contact-info-header h4 {
+        font-family: var(--font-serif);
+        font-size: 1.2rem;
+        color: var(--text-dark);
+      }
+
+      .hours-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px dashed var(--border-color);
+        color: var(--text-dark);
+      }
+
+      .hours-row:last-child {
+        border-bottom: none;
+      }
+
+      .hours-row.closed span:last-child {
+        color: #dc2626;
+        font-weight: 600;
+      }
+
+      .location-text {
+        font-size: 0.85rem;
+        color: var(--text-dark);
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+
+      .map-container {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        height: 350px;
+        width: 100%;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      footer {
+        background-color: var(--bg-main);
+        padding: 3rem 2rem 2rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto 2rem;
+      }
+
+      .footer-brand {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-col h4 {
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        color: var(--terracotta);
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .footer-socials a {
+        color: var(--text-muted);
+        background: var(--bg-alt);
+        padding: 0.6rem;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+
+      .footer-socials a:hover {
+        color: #ffffff;
+        background: var(--terracotta);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 1024px) {
         .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            padding: 0 2rem;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+          gap: 1rem;
         }
 
-        .food-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
+        .hero-title,
+        .hero-subtitle {
+          font-size: 2.75rem;
         }
 
-        .food-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
-        }
-
-        .img-container {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            background: #E8E2D9;
-        }
-
-        .food-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--text-dark);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-            backdrop-filter: blur(4px);
-        }
-
-        .food-info {
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .food-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-        }
-
-        .food-name {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            color: var(--text-dark);
-        }
-
-        .food-price {
-            font-family: var(--font-sans);
-            font-weight: 700;
-            color: var(--terracotta);
-            font-size: 1.1rem;
-        }
-
-        .food-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .center-btn-wrapper {
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .why-order-section {
-            background-color: var(--bg-alt);
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            border: 1px solid var(--border-color);
-        }
-
-        .feature-icon {
-            color: var(--terracotta);
-            margin-bottom: 1rem;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .feature-title {
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .banner-cta {
-            background-color: var(--terracotta);
-            color: #FFFFFF;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .banner-title {
-            font-family: var(--font-serif);
-            font-size: 2.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .banner-desc {
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .banner-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .info-section {
-            padding: 3rem 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .info-block {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .info-icon {
-            color: var(--terracotta);
-            margin-top: 0.2rem;
-        }
-
-        .info-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .info-text {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .info-link {
-            display: inline-block;
-            color: var(--terracotta);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-decoration: none;
-            margin-top: 0.5rem;
-        }
-
-        #menu {
-            background: linear-gradient(rgba(250, 247, 242, 0.85), rgba(250, 247, 242, 0.85)), url('back.jpeg') center/cover fixed;
-            min-height: 100vh;
-        }
-
-        .menu-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.9rem 1.25rem 0.9rem 3rem;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            background: var(--card-bg);
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .search-input:focus {
-            border-color: var(--terracotta);
-            box-shadow: 0 0 0 3px rgba(200, 90, 50, 0.1);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 1.2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-        }
-
-        .filter-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .filter-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .filter-btn:hover {
-            border-color: var(--text-muted);
-        }
-
-        .filter-btn.active {
-            background: var(--terracotta);
-            color: #FFFFFF;
-            border-color: var(--terracotta);
-        }
-
-        .order-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .about-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .about-img {
-            width: 100%;
-            height: 100%;
-            min-height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-        }
-
-        .about-text h3 {
-            font-family: var(--font-serif);
-            font-size: 2.25rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .about-feature-card {
-            background: var(--bg-alt);
-            padding: 1.25rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .about-feature-card h4 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.35rem;
-        }
-
-        .about-feature-card p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 0;
-            line-height: 1.4;
-        }
-
-        .contact-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .contact-top-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-card-lg {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .contact-card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--bg-alt);
-            color: var(--terracotta);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card-icon.wa {
-            background: #DCFCE7;
-            color: #16A34A;
-        }
-
-        .contact-card-lg h3 {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-card-lg p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .btn-wa-green {
-            background: #25D366;
-            color: white;
-            border: none;
-        }
-
-        .btn-wa-green:hover {
-            background: #1DA851;
-        }
-
-        .form-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .form-header h3 {
-            font-family: var(--font-serif);
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .form-header p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
+        .cards-grid,
+        .about-grid,
+        .contact-top-grid,
+        .contact-mid-grid,
         .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
+          grid-template-columns: 1fr;
         }
 
         .form-group.full-width {
-            grid-column: span 2;
+          grid-column: span 1;
         }
 
-        .form-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .form-input, .form-textarea, .form-select {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-main);
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .form-input:focus, .form-textarea:focus, .form-select:focus {
-            border-color: #25D366;
-            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
-            background: var(--card-bg);
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-submit-btn {
-            width: 100%;
-            padding: 1rem;
-            border-radius: 50px;
-            background: #25D366;
-            color: white;
-            font-family: var(--font-sans);
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            transition: all 0.2s ease;
-            margin-top: 1rem;
-        }
-
-        .form-submit-btn:hover {
-            background: #1DA851;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
-        }
-
-        .order-builder {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .order-list {
-            list-style: none;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            background: var(--bg-main);
-            overflow: hidden;
-        }
-
-        .order-list-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.6rem 1rem;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.9rem;
-            color: var(--text-dark);
-        }
-
-        .order-list-item:last-child {
-            border-bottom: none;
-        }
-
-        .remove-btn {
-            color: #DC2626;
-            cursor: pointer;
-            font-weight: bold;
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            padding: 0;
-            line-height: 1;
-        }
-
-        .empty-cart {
-            padding: 1rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .contact-mid-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info-card {
-            background: var(--bg-alt);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 1.75rem;
-        }
-
-        .contact-info-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .contact-info-header h4 {
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
-            color: var(--text-dark);
-        }
-
-        .hours-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px dashed var(--border-color);
-            color: var(--text-dark);
-        }
-
-        .hours-row:last-child {
-            border-bottom: none;
-        }
-
-        .hours-row.closed span:last-child {
-            color: #DC2626;
-            font-weight: 600;
-        }
-
-        .location-text {
-            font-size: 0.85rem;
-            color: var(--text-dark);
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-        }
-
-        .map-container {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            height: 350px;
-            width: 100%;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        footer {
-            background-color: var(--bg-main);
-            padding: 3rem 2rem 2rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .about-features {
+          grid-template-columns: 1fr;
         }
 
         .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto 2rem;
+          grid-template-columns: 1fr;
         }
 
-        .footer-brand {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
+        .order-builder {
+          flex-direction: column;
         }
 
-        .footer-col h4 {
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.75rem;
+        .order-builder input,
+        .order-builder button {
+          width: 100% !important;
         }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: var(--terracotta);
-        }
-
-        .footer-socials {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .footer-socials a {
-            color: var(--text-muted);
-            background: var(--bg-alt);
-            padding: 0.6rem;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .footer-socials a:hover {
-            color: #FFFFFF;
-            background: var(--terracotta);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        @media (max-width: 1024px) {
-            .cards-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .hero-title, .hero-subtitle {
-                font-size: 2.75rem;
-            }
-
-            .cards-grid,
-            .about-grid,
-            .contact-top-grid,
-            .contact-mid-grid,
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .order-builder {
-                flex-direction: column;
-            }
-
-            .order-builder input, .order-builder button {
-                width: 100% !important;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-        <div class="header-container">
-            <a href="#" class="logo">
-                <img src="logo.jpeg" alt="Curst & Kosha Logo">
-            </a>
-            <ul class="nav-tabs">
-                <li class="nav-tab active" onclick="switchTab('home')">Home</li>
-                <li class="nav-tab" onclick="switchTab('menu')">Menu</li>
-                <li class="nav-tab highlight-tab" onclick="switchTab('order')">Order Now</li>
-                <li class="nav-tab" onclick="switchTab('about')">About Us</li>
-                <li class="nav-tab" onclick="switchTab('contact')">Contact</li>
-            </ul>
-            <div class="header-actions">
-                <a href="tel:+917044487197" class="btn btn-outline">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span>Call Order</span>
-                </a>
-                <a href="https://wa.me/917044487197" class="btn btn-terracotta">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    <span>WhatsApp</span>
-                </a>
-            </div>
+      <div class="header-container">
+        <a href="#" class="logo">
+          <img src="logo.jpeg" alt="Crust & Kosha Logo" />
+        </a>
+        <ul class="nav-tabs">
+          <li class="nav-tab active" onclick="switchTab('home')">Home</li>
+          <li class="nav-tab" onclick="switchTab('menu')">Menu</li>
+          <li class="nav-tab highlight-tab" onclick="switchTab('order')">
+            Order Now
+          </li>
+          <li class="nav-tab" onclick="switchTab('about')">About Us</li>
+          <li class="nav-tab" onclick="switchTab('contact')">Contact</li>
+        </ul>
+        <div class="header-actions">
+          <a href="tel:+917044487197" class="btn btn-outline">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <span>Call Order</span>
+          </a>
+          <a href="https://wa.me/917044487197" class="btn btn-terracotta">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+              ></path>
+            </svg>
+            <span>WhatsApp</span>
+          </a>
         </div>
+      </div>
     </header>
 
     <main>
-        <div id="home" class="tab-content active">
-            <section class="hero-section">
-                <div class="hero-eyebrow">CLOUD KITCHEN • BALLY</div>
-                <h1 class="hero-title">Curst & Kosha</h1>
-                <h2 class="hero-subtitle">Fresh Eats From Home</h2>
-            </section>
+      <div id="home" class="tab-content active">
+        <section class="hero-section">
+          <div class="hero-eyebrow">CLOUD KITCHEN • BALLY</div>
+          <h1 class="hero-title">Crust & Kosha</h1>
+          <h2 class="hero-subtitle">Fresh Eats From Home</h2>
+        </section>
 
-            <section>
-                <div class="section-header">
-                    <h2 class="section-title">Featured From Our Kitchen</h2>
-                    <p class="section-desc">A few favourites from our daily menu.</p>
+        <section>
+          <div class="section-header">
+            <h2 class="section-title">Featured From Our Kitchen</h2>
+            <p class="section-desc">A few favourites from our daily menu.</p>
+          </div>
+
+          <div class="cards-grid">
+            <div class="food-card">
+              <div class="img-container">
+                <span class="badge">Burgers</span>
+                <img
+                  src="chic_burg.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Chicken Burger"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Chicken Burger</h3>
+                  <span class="food-price">₹120</span>
                 </div>
+                <p class="food-desc">
+                  Juicy chicken patty with fresh lettuce, mayo and special
+                  sauces.
+                </p>
+              </div>
+            </div>
 
-                <div class="cards-grid">
-                    <div class="food-card">
-                        <div class="img-container">
-                            <span class="badge">Burgers</span>
-                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Chicken Burger" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Chicken Burger</h3>
-                                <span class="food-price">₹120</span>
-                            </div>
-                            <p class="food-desc">Juicy chicken patty with fresh lettuce, mayo and special sauces.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card">
-                        <div class="img-container">
-                            <span class="badge">Pizzas</span>
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Chicken Pizza" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Chicken Pizza</h3>
-                                <span class="food-price">₹159</span>
-                            </div>
-                            <p class="food-desc">Loaded with seasoned chicken and gooey melted cheese.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card">
-                        <div class="img-container">
-                            <span class="badge">Pasta</span>
-                            <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=600&q=80" alt="White Sauce Pasta" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">White Sauce Pasta</h3>
-                                <span class="food-price">₹149</span>
-                            </div>
-                            <p class="food-desc">Creamy and cheesy white sauce pasta garnished with herbs.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card">
-                        <div class="img-container">
-                            <span class="badge">Maggi</span>
-                            <img src="https://images.unsplash.com/photo-1612929633738-8fe01f7c8136?auto=format&fit=crop&w=600&q=80" alt="Cheese Maggie" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Cheese Maggie</h3>
-                                <span class="food-price">₹70</span>
-                            </div>
-                            <p class="food-desc">Classic masala Maggi loaded with gooey melted cheese.</p>
-                        </div>
-                    </div>
+            <div class="food-card">
+              <div class="img-container">
+                <span class="badge">Pizzas</span>
+                <img
+                  src="chickenpizza.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Chicken Pizza"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Chicken Pizza</h3>
+                  <span class="food-price" style="font-size: 0.95rem"
+                    >₹149(P) / ₹199(M)</span
+                  >
                 </div>
+                <p class="food-desc">
+                  Loaded with seasoned chicken and gooey melted cheese.
+                  (Personal / Medium)
+                </p>
+              </div>
+            </div>
 
-                <div class="center-btn-wrapper">
-                    <button class="btn btn-terracotta" onclick="switchTab('menu')">View Full Menu</button>
+            <div class="food-card">
+              <div class="img-container">
+                <span class="badge">Pasta</span>
+                <img
+                  src="WhitesaucePasta.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="White Sauce Pasta"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">White Sauce Pasta</h3>
+                  <span class="food-price">₹149</span>
                 </div>
-            </section>
+                <p class="food-desc">
+                  Creamy and cheesy white sauce pasta garnished with herbs.
+                </p>
+              </div>
+            </div>
 
-            <section class="why-order-section">
-                <div class="section-header" style="margin-top: 0;">
-                    <h2 class="section-title">Why Order From Curst & Kosha?</h2>
+            <div class="food-card">
+              <div class="img-container">
+                <span class="badge">Maggi</span>
+                <img
+                  src="chesse_maggi.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Cheese Maggie"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Cheese Maggie</h3>
+                  <span class="food-price">₹70</span>
                 </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                        </div>
-                        <h3 class="feature-title">Home-Style Taste</h3>
-                        <p class="feature-desc">Every dish is cooked like it is at home — no restaurant shortcuts, just honest flavours.</p>
-                    </div>
+                <p class="food-desc">
+                  Classic masala Maggi loaded with gooey melted cheese.
+                </p>
+              </div>
+            </div>
+          </div>
 
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                        </div>
-                        <h3 class="feature-title">Fresh Ingredients</h3>
-                        <p class="feature-desc">We buy vegetables and meats daily so every meal is fresh and full of aroma.</p>
-                    </div>
+          <div class="center-btn-wrapper">
+            <button class="btn btn-terracotta" onclick="switchTab('menu')">
+              View Full Menu
+            </button>
+          </div>
+        </section>
 
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                        </div>
-                        <h3 class="feature-title">Fast Delivery</h3>
-                        <p class="feature-desc">Hot meals packed carefully and delivered quickly across Bally, straight to your door.</p>
-                    </div>
+        <section class="why-order-section">
+          <div class="section-header" style="margin-top: 0">
+            <h2 class="section-title">Why Order From Crust & Kosha?</h2>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+              </div>
+              <h3 class="feature-title">Home-Style Taste</h3>
+              <p class="feature-desc">
+                Every dish is cooked like it is at home — no restaurant
+                shortcuts, just honest flavours.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="feature-title">Fresh Ingredients</h3>
+              <p class="feature-desc">
+                We buy vegetables and meats daily so every meal is fresh and
+                full of aroma.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <h3 class="feature-title">Fast Delivery</h3>
+              <p class="feature-desc">
+                Hot meals packed carefully and delivered quickly across Bally,
+                straight to your door.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="banner-cta">
+          <h2 class="banner-title">Craving Fresh Comfort Food?</h2>
+          <p class="banner-desc">
+            Skip the apps. Just call or message us on WhatsApp and we will take
+            care of the rest.
+          </p>
+          <div class="banner-buttons">
+            <a href="tel:+917044487197" class="btn btn-white"
+              >Call +91 7044487197</a
+            >
+            <a href="https://wa.me/917044487197" class="btn btn-white-outline"
+              >WhatsApp Order</a
+            >
+          </div>
+        </section>
+
+        <section class="info-section">
+          <div class="info-block">
+            <div class="info-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div>
+              <h4 class="info-title">Kitchen Hours</h4>
+              <p class="info-text">Monday – Friday: 11:00 AM – 10:00 PM</p>
+              <p class="info-text">Saturday – Sunday: 10:00 AM – 11:00 PM</p>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div>
+              <h4 class="info-title">Location</h4>
+              <p class="info-text">
+                Crust & Kosha Cloud Kitchen, Bally, Howrah
+              </p>
+              <p class="info-text">West Bengal 711227 · Delivery within 5 km</p>
+              <a
+                href="https://maps.app.goo.gl/xXeJUyznQEAxiWdA7"
+                class="info-link"
+                >View on map &rarr;</a
+              >
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="menu" class="tab-content">
+        <div class="menu-container">
+          <div class="section-header" style="margin-top: 0">
+            <h2 class="section-title">Our Menu</h2>
+            <p class="section-desc">
+              Homestyle favourites & cafe snacks. Call or WhatsApp to order for
+              delivery in Bally.
+            </p>
+          </div>
+
+          <div class="search-container">
+            <svg
+              class="search-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search dishes..."
+              onkeyup="filterMenu()"
+            />
+          </div>
+
+          <div class="filter-tabs">
+            <button
+              class="filter-btn active"
+              onclick="filterCategory('All', this)"
+            >
+              All
+            </button>
+            <button
+              class="filter-btn"
+              onclick="filterCategory('Sandwiches', this)"
+            >
+              Sandwiches
+            </button>
+            <button
+              class="filter-btn"
+              onclick="filterCategory('Burgers', this)"
+            >
+              Burgers
+            </button>
+            <button class="filter-btn" onclick="filterCategory('Pizzas', this)">
+              Pizzas
+            </button>
+            <button class="filter-btn" onclick="filterCategory('Maggi', this)">
+              Maggi
+            </button>
+            <button class="filter-btn" onclick="filterCategory('Pasta', this)">
+              Pasta
+            </button>
+            <button class="filter-btn" onclick="filterCategory('Snacks', this)">
+              Snacks
+            </button>
+            <button class="filter-btn" onclick="filterCategory('Momos', this)">
+              Momos
+            </button>
+            <button
+              class="filter-btn"
+              onclick="filterCategory('Ala-Carte', this)"
+            >
+              Ala-Carte
+            </button>
+            <button
+              class="filter-btn"
+              onclick="filterCategory('Bengali', this)"
+            >
+              Bengali Combos
+            </button>
+          </div>
+
+          <div class="cards-grid" id="menuGrid">
+            <div class="food-card menu-item" data-category="Maggi">
+              <div class="img-container">
+                <span class="badge">Maggi</span>
+                <img
+                  src="veg_mag.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Veg Maggie"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Veg Maggie</h3>
+                  <span class="food-price">₹50</span>
                 </div>
-            </section>
+                <p class="food-desc">
+                  The classic, comforting masala Maggi noodles.
+                </p>
+              </div>
+            </div>
 
-            <section class="banner-cta">
-                <h2 class="banner-title">Craving Fresh Comfort Food?</h2>
-                <p class="banner-desc">Skip the apps. Just call or message us on WhatsApp and we will take care of the rest.</p>
-                <div class="banner-buttons">
-                    <a href="tel:+917044487197" class="btn btn-white">Call +91 7044487197</a>
-                    <a href="https://wa.me/917044487197" class="btn btn-white-outline">WhatsApp Order</a>
+            <div class="food-card menu-item" data-category="Maggi">
+              <div class="img-container">
+                <span class="badge">Maggi</span>
+                <img
+                  src="chesse_maggi.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Cheese Maggie"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Cheese Maggie</h3>
+                  <span class="food-price">₹70</span>
                 </div>
-            </section>
+                <p class="food-desc">
+                  Classic Maggi loaded with gooey melted cheese.
+                </p>
+              </div>
+            </div>
 
-            <section class="info-section">
-                <div class="info-block">
-                    <div class="info-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    </div>
-                    <div>
-                        <h4 class="info-title">Kitchen Hours</h4>
-                        <p class="info-text">Monday – Friday: 11:00 AM – 10:00 PM</p>
-                        <p class="info-text">Saturday – Sunday: 10:00 AM – 11:00 PM</p>
-                    </div>
+            <div class="food-card menu-item" data-category="Pasta">
+              <div class="img-container">
+                <span class="badge">Pasta</span>
+                <img
+                  src="WhitesaucePasta.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="White Sauce Pasta"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">White Sauce Pasta</h3>
+                  <span class="food-price">₹149</span>
                 </div>
+                <p class="food-desc">
+                  Creamy and cheesy white sauce pasta garnished with mixed
+                  herbs.
+                </p>
+              </div>
+            </div>
 
-                <div class="info-block">
-                    <div class="info-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    </div>
-                    <div>
-                        <h4 class="info-title">Location</h4>
-                        <p class="info-text">Curst & Kosha Cloud Kitchen, Bally, Howrah</p>
-                        <p class="info-text">West Bengal 711227 · Delivery within 5 km</p>
-                        <a href="https://maps.app.goo.gl/xXeJUyznQEAxiWdA7" class="info-link">View on map &rarr;</a>
-                    </div>
+            <div class="food-card menu-item" data-category="Snacks">
+              <div class="img-container">
+                <span class="badge">Snacks</span>
+                <img
+                  src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600&q=80"
+                  alt="French Fries"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">French Fries</h3>
+                  <span class="food-price">₹80</span>
                 </div>
-            </section>
+                <p class="food-desc">
+                  Crispy, golden French fries seasoned to perfection.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Snacks">
+              <div class="img-container">
+                <span class="badge">Snacks</span>
+                <img
+                  src="fishfinger.jpeg?auto=format&fit=crop&w=600&q=80"
+                  alt="Fish Finger"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Fish Finger</h3>
+                  <span class="food-price">₹120</span>
+                </div>
+                <p class="food-desc">
+                  Crispy golden fried fish fingers, perfect for snacking.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Snacks">
+              <div class="img-container">
+                <span class="badge">Snacks</span>
+                <img
+                  src="Popcorn-Chicken.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Chicken Popcorn"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Chicken Popcorn</h3>
+                  <span class="food-price">₹110</span>
+                </div>
+                <p class="food-desc">
+                  Bite-sized, tender chicken chunks fried to crispy perfection.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Snacks">
+              <div class="img-container">
+                <span class="badge">Snacks</span>
+                <img
+                  src="fishfry.jpeg?auto=format&fit=crop&w=600&q=80"
+                  alt="Fish Fry"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Fish Fry</h3>
+                  <span class="food-price">₹110</span>
+                </div>
+                <p class="food-desc">
+                  Golden crumb-fried fish with salad on the side.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Snacks">
+              <div class="img-container">
+                <span class="badge">Snacks</span>
+                <img
+                  src="Cheese_Fingers_Plate.png?auto=format&fit=crop&w=600&q=80"
+                  alt="Cheesy Finger Veg"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Cheesy Finger Veg (4 Pcs)</h3>
+                  <span class="food-price">₹79</span>
+                </div>
+                <p class="food-desc">
+                  Crispy on the outside, loaded with gooey melted cheese inside.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Snacks">
+              <div class="img-container">
+                <span class="badge">Snacks</span>
+                <img
+                  src="vegball.jpeg?auto=format&fit=crop&w=600&q=80"
+                  alt="Cheese Ball Veg"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Cheese Ball Veg (5 Pcs)</h3>
+                  <span class="food-price">₹49</span>
+                </div>
+                <p class="food-desc">
+                  Bite-sized golden crispy vegetarian cheese balls.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Snacks">
+              <div class="img-container">
+                <span class="badge">Snacks</span>
+                <img
+                  src="Crispy-Chicken-Strips-1295.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Chicken Strips"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Chicken Strips (4 Pcs)</h3>
+                  <span class="food-price">₹139</span>
+                </div>
+                <p class="food-desc">
+                  Tender chicken strips coated in a crispy, seasoned breading.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Snacks">
+              <div class="img-container">
+                <span class="badge">Snacks</span>
+                <img
+                  src="chicken_chese_ball.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Chicken Cheese Ball"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Chicken Cheese Ball (4 Pcs)</h3>
+                  <span class="food-price">₹79</span>
+                </div>
+                <p class="food-desc">
+                  Succulent chicken blended with cheesy goodness and fried
+                  crisp.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Sandwiches">
+              <div class="img-container">
+                <span class="badge">Sandwiches</span>
+                <img
+                  src="veg_san.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Veg Grill Sandwich"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Veg Grill Sandwich</h3>
+                  <span class="food-price">₹75</span>
+                </div>
+                <p class="food-desc">
+                  Freshly grilled with crisp veggies and flavorful spreads.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Sandwiches">
+              <div class="img-container">
+                <span class="badge">Sandwiches</span>
+                <img
+                  src="corn_san.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Corn Cheese Sandwich"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Corn Cheese Sandwich</h3>
+                  <span class="food-price">₹65</span>
+                </div>
+                <p class="food-desc">
+                  Classic grilled sandwich loaded with gooey melted cheese and
+                  Sweet Corn.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Sandwiches">
+              <div class="img-container">
+                <span class="badge">Sandwiches</span>
+                <img
+                  src="chic_san.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Chicken Sandwich"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Chicken Sandwich</h3>
+                  <span class="food-price">₹99</span>
+                </div>
+                <p class="food-desc">
+                  Hearty sandwich packed with savory chicken filling.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Pizzas">
+              <div class="img-container">
+                <span class="badge">Pizzas</span>
+                <img
+                  src="cornchese.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Corn Cheese Pizza"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Corn Cheese Pizza</h3>
+                  <span class="food-price" style="font-size: 0.95rem"
+                    >₹129(P) / ₹149(M)</span
+                  >
+                </div>
+                <p class="food-desc">
+                  Sweet corn and mozzarella cheese on a freshly baked crust.
+                  (Personal / Medium)
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Pizzas">
+              <div class="img-container">
+                <span class="badge">Pizzas</span>
+                <img
+                  src="marg.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Margarita Pizza"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Margarita Pizza</h3>
+                  <span class="food-price" style="font-size: 0.95rem"
+                    >₹99(P) / ₹139(M)</span
+                  >
+                </div>
+                <p class="food-desc">
+                  Classic cheese and tomato pizza with fresh basil. (Personal /
+                  Medium)
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Pizzas">
+              <div class="img-container">
+                <span class="badge">Pizzas</span>
+                <img
+                  src="chickenpizza.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Chicken Pizza"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Chicken Pizza</h3>
+                  <span class="food-price" style="font-size: 0.95rem"
+                    >₹149(P) / ₹199(M)</span
+                  >
+                </div>
+                <p class="food-desc">
+                  Loaded with tender chicken pieces and melted cheese. (Personal
+                  / Medium)
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Pizzas">
+              <div class="img-container">
+                <span class="badge">Pizzas</span>
+                <img
+                  src="paneer_pizza.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Paneer Pizza"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Paneer Pizza</h3>
+                  <span class="food-price" style="font-size: 0.95rem"
+                    >₹149(P) / ₹199(M)</span
+                  >
+                </div>
+                <p class="food-desc">
+                  A delightful mix of fresh vegetables and generous cheese.
+                  (Personal / Medium)
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Burgers">
+              <div class="img-container">
+                <span class="badge">Burgers</span>
+                <img
+                  src="chic_burg.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Chicken Burger"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Chicken Burger</h3>
+                  <span class="food-price">₹120</span>
+                </div>
+                <p class="food-desc">
+                  Juicy chicken patty with fresh lettuce, mayo and special
+                  sauces.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Burgers">
+              <div class="img-container">
+                <span class="badge">Burgers</span>
+                <img
+                  src="vegburg.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Veg Burger"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Veg Burger</h3>
+                  <span class="food-price">₹100</span>
+                </div>
+                <p class="food-desc">
+                  Crispy veggie patty with fresh lettuce and tangy sauce.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Momos">
+              <div class="img-container">
+                <span class="badge">Momos</span>
+                <img
+                  src="steammomo.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Steamed Momo"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Steamed Momo</h3>
+                  <span class="food-price">₹99</span>
+                </div>
+                <p class="food-desc">
+                  Soft, steamed dumplings served with a spicy dipping sauce.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Momos">
+              <div class="img-container">
+                <span class="badge">Momos</span>
+                <img
+                  src="panfriedmomo.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Panfried Momo"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Panfried Momo</h3>
+                  <span class="food-price">₹120</span>
+                </div>
+                <p class="food-desc">
+                  Dumplings pan-fried to a crispy perfection with savory sauce.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Momos">
+              <div class="img-container">
+                <span class="badge">Momos</span>
+                <img
+                  src="fried_momo.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Fried Momo"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Fried Momo</h3>
+                  <span class="food-price">₹110</span>
+                </div>
+                <p class="food-desc">
+                  Deep-fried dumplings for that extra crunchy bite.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Ala-Carte">
+              <div class="img-container">
+                <span class="badge">Ala-Carte</span>
+                <img
+                  src="Mutton.jpeg?auto=format&fit=crop&w=600&q=80"
+                  alt="Mutton Kosha 4Pc"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Mutton Kosha 4Pc</h3>
+                  <span class="food-price">₹349</span>
+                </div>
+                <p class="food-desc">
+                  Slow-cooked, dark, rich and spicy mutton curry.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Ala-Carte">
+              <div class="img-container">
+                <span class="badge">Ala-Carte</span>
+                <img
+                  src="ChickenKosha (1).webp?auto=format&fit=crop&w=600&q=80"
+                  alt="Chicken Kosha 4Pc"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Chicken Kosha</h3>
+                  <span class="food-price">₹149</span>
+                </div>
+                <p class="food-desc">
+                  Slow-cooked, dark, rich and spicy chicken curry.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Bengali">
+              <div class="img-container">
+                <span class="badge">Bengali</span>
+                <img
+                  src="polao_chic.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Polao + Chicken Kosha Combo (2 Pcs)"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Polao + Chicken Kosha (2Pcs)</h3>
+                  <span class="food-price">₹149</span>
+                </div>
+                <p class="food-desc">
+                  Fragrant polao with our rich, spicy chicken kosha.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Bengali">
+              <div class="img-container">
+                <span class="badge">Bengali</span>
+                <img
+                  src="combo_chili.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Fried Rice + Chili Chicken (4 Pcs)"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Fried Rice + Chili Chicken (4 Pcs)</h3>
+                  <span class="food-price">₹149</span>
+                </div>
+                <p class="food-desc">
+                  Chinese style fried rice served with spicy chili chicken.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Bengali">
+              <div class="img-container">
+                <span class="badge">Bengali</span>
+                <img
+                  src="combo_chili.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Pulao + Mutton Kosha (2 Pcs)"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Pulao + Mutton Kosha (2 Pcs)</h3>
+                  <span class="food-price">₹239</span>
+                </div>
+                <p class="food-desc">
+                  Fragrant pulao served with our rich, spicy mutton kosha.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Bengali">
+              <div class="img-container">
+                <span class="badge">Bengali</span>
+                <img
+                  src="combo_chili.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Paratha(3 Pcs)+ Chicken Kosha(2 Pcs)"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">
+                    Paratha(3 Pcs)+ Chicken Kosha(2 Pcs)
+                  </h3>
+                  <span class="food-price">₹129</span>
+                </div>
+                <p class="food-desc">
+                  Traditional paratha served with our rich, spicy Chicken.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Bengali">
+              <div class="img-container">
+                <span class="badge">Bengali</span>
+                <img
+                  src="combo_chili.jpg?auto=format&fit=crop&w=600&q=80"
+                  alt="Paratha(3 Pcs)+ Aloor Dum"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Paratha(3 Pcs)+ Aloor Dum</h3>
+                  <span class="food-price">₹79</span>
+                </div>
+                <p class="food-desc">
+                  Traditional paratha served with our rich, spicy aloor dum.
+                </p>
+              </div>
+            </div>
+
+            <div class="food-card menu-item" data-category="Bengali">
+              <div class="img-container">
+                <span class="badge">Bengali</span>
+                <img
+                  src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80"
+                  alt="Fried Rice + Chicken Kosha (2 Pcs)"
+                  class="food-img"
+                />
+              </div>
+              <div class="food-info">
+                <div class="food-header">
+                  <h3 class="food-name">Fried Rice + Chicken Kosha (2 Pcs)</h3>
+                  <span class="food-price">₹149</span>
+                </div>
+                <p class="food-desc">
+                  Chinese style fried rice served with our rich, spicy chicken
+                  kosha.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="order" class="tab-content order-container">
+        <div class="section-header" style="margin-top: 0">
+          <h2 class="section-title">Place Your Order</h2>
+          <p class="section-desc">
+            Build your order below and send it directly to us via WhatsApp.
+          </p>
         </div>
 
-        <div id="menu" class="tab-content">
-            <div class="menu-container">
-                <div class="section-header" style="margin-top: 0;">
-                    <h2 class="section-title">Our Menu</h2>
-                    <p class="section-desc">Homestyle favourites & cafe snacks. Call or WhatsApp to order for delivery in Bally.</p>
+        <div class="form-card">
+          <div class="form-header">
+            <h3>⚡ Quick WhatsApp Order Form</h3>
+            <p>
+              Fill out your details and click below to send your order directly
+              to our WhatsApp!
+            </p>
+          </div>
+          <form id="waOrderForm" onsubmit="sendToWhatsApp(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="custName">Your Name *</label>
+                <input
+                  type="text"
+                  id="custName"
+                  class="form-input"
+                  placeholder="e.g. Rahul Mukherjee"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="custPhone">Phone Number *</label>
+                <input
+                  type="tel"
+                  id="custPhone"
+                  class="form-input"
+                  placeholder="e.g. +91 98765 43210"
+                  required
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">Build Your Order *</label>
+                <div class="order-builder">
+                  <select id="itemSelect" class="form-select" style="flex: 1">
+                    <option value="" disabled selected>
+                      -- Select a Dish --
+                    </option>
+
+                    <!-- Maggi -->
+                    <option value="Veg Maggie - ₹50">Veg Maggie - ₹50</option>
+                    <option value="Cheese Maggie - ₹70">
+                      Cheese Maggie - ₹70
+                    </option>
+
+                    <!-- Pasta -->
+                    <option value="White Sauce Pasta - ₹149">
+                      White Sauce Pasta - ₹149
+                    </option>
+
+                    <!-- Snacks -->
+                    <option value="French Fries - ₹80">
+                      French Fries - ₹80
+                    </option>
+                    <option value="Fish Finger - ₹120">
+                      Fish Finger - ₹120
+                    </option>
+                    <option value="Chicken Popcorn - ₹110">
+                      Chicken Popcorn - ₹110
+                    </option>
+                    <option value="Fish Fry - ₹110">Fish Fry - ₹110</option>
+                    <option value="Cheesy Finger Veg (4 Pcs) - ₹79">
+                      Cheesy Finger Veg (4 Pcs) - ₹79
+                    </option>
+                    <option value="Cheese Ball Veg (5 Pcs) - ₹49">
+                      Cheese Ball Veg (5 Pcs) - ₹49
+                    </option>
+                    <option value="Chicken Strips (4 Pcs) - ₹139">
+                      Chicken Strips (4 Pcs) - ₹139
+                    </option>
+                    <option value="Chicken Cheese Ball (4 Pcs) - ₹79">
+                      Chicken Cheese Ball (4 Pcs) - ₹79
+                    </option>
+
+                    <!-- Sandwiches -->
+                    <option value="Veg Grill Sandwich - ₹75">
+                      Veg Grill Sandwich - ₹75
+                    </option>
+                    <option value="Corn Cheese Sandwich - ₹65">
+                      Corn Cheese Sandwich - ₹65
+                    </option>
+                    <option value="Chicken Sandwich - ₹99">
+                      Chicken Sandwich - ₹99
+                    </option>
+
+                    <!-- Pizzas -->
+                    <option value="Corn Cheese Pizza (Personal) - ₹129">
+                      Corn Cheese Pizza (Personal) - ₹129
+                    </option>
+                    <option value="Corn Cheese Pizza (Medium) - ₹149">
+                      Corn Cheese Pizza (Medium) - ₹149
+                    </option>
+                    <option value="Margarita Pizza (Personal) - ₹99">
+                      Margarita Pizza (Personal) - ₹99
+                    </option>
+                    <option value="Margarita Pizza (Medium) - ₹139">
+                      Margarita Pizza (Medium) - ₹139
+                    </option>
+                    <option value="Chicken Pizza (Personal) - ₹149">
+                      Chicken Pizza (Personal) - ₹149
+                    </option>
+                    <option value="Chicken Pizza (Medium) - ₹199">
+                      Chicken Pizza (Medium) - ₹199
+                    </option>
+                    <option value="Paneer Pizza (Personal) - ₹149">
+                      Paneer Pizza (Personal) - ₹149
+                    </option>
+                    <option value="Paneer Pizza (Medium) - ₹199">
+                      Paneer Pizza (Medium) - ₹199
+                    </option>
+
+                    <!-- Burgers -->
+                    <option value="Chicken Burger - ₹120">
+                      Chicken Burger - ₹120
+                    </option>
+                    <option value="Veg Burger - ₹100">Veg Burger - ₹100</option>
+
+                    <!-- Momos -->
+                    <option value="Steamed Momo - ₹99">
+                      Steamed Momo - ₹99
+                    </option>
+                    <option value="Panfried Momo - ₹120">
+                      Panfried Momo - ₹120
+                    </option>
+                    <option value="Fried Momo - ₹110">Fried Momo - ₹110</option>
+
+                    <!-- Ala-Carte -->
+                    <option value="Mutton Kosha 4Pc - ₹349">
+                      Mutton Kosha 4Pc - ₹349
+                    </option>
+                    <option value="Chicken Kosha - ₹149">
+                      Chicken Kosha - ₹149
+                    </option>
+
+                    <!-- Bengali Combos -->
+                    <option value="Polao + Chicken Kosha (2Pcs) - ₹149">
+                      Polao + Chicken Kosha (2Pcs) - ₹149
+                    </option>
+                    <option value="Fried Rice + Chili Chicken (4 Pcs) - ₹149">
+                      Fried Rice + Chili Chicken (4 Pcs) - ₹149
+                    </option>
+                    <option value="Pulao + Mutton Kosha (2 Pcs) - ₹239">
+                      Pulao + Mutton Kosha (2 Pcs) - ₹239
+                    </option>
+                    <option value="Paratha(3 Pcs)+ Chicken Kosha(2 Pcs) - ₹129">
+                      Paratha(3 Pcs)+ Chicken Kosha(2 Pcs) - ₹129
+                    </option>
+                    <option value="Paratha(3 Pcs)+ Aloor Dum - ₹79">
+                      Paratha(3 Pcs)+ Aloor Dum - ₹79
+                    </option>
+                    <option value="Fried Rice + Chicken Kosha (2 Pcs) - ₹149">
+                      Fried Rice + Chicken Kosha (2 Pcs) - ₹149
+                    </option>
+                  </select>
+                  <input
+                    type="number"
+                    id="itemQty"
+                    class="form-input"
+                    min="1"
+                    value="1"
+                    style="width: 80px"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-terracotta"
+                    onclick="addItem()"
+                    style="
+                      border-radius: 10px;
+                      padding: 0.8rem 1.5rem;
+                      height: 100%;
+                    "
+                  >
+                    Add
+                  </button>
                 </div>
+                <ul id="orderList" class="order-list">
+                  <li class="empty-cart">No items added yet.</li>
+                </ul>
+              </div>
 
-                <div class="search-container">
-                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" id="searchInput" class="search-input" placeholder="Search dishes..." onkeyup="filterMenu()">
-                </div>
-
-                <div class="filter-tabs">
-                    <button class="filter-btn active" onclick="filterCategory('All', this)">All</button>
-                    <button class="filter-btn" onclick="filterCategory('Sandwiches', this)">Sandwiches</button>
-                    <button class="filter-btn" onclick="filterCategory('Burgers', this)">Burgers</button>
-                    <button class="filter-btn" onclick="filterCategory('Pizzas', this)">Pizzas</button>
-                    <button class="filter-btn" onclick="filterCategory('Maggi', this)">Maggi</button>
-                    <button class="filter-btn" onclick="filterCategory('Pasta', this)">Pasta</button>
-                    <button class="filter-btn" onclick="filterCategory('Snacks', this)">Snacks</button>
-                    <button class="filter-btn" onclick="filterCategory('Momos', this)">Momos</button>
-                    <button class="filter-btn" onclick="filterCategory('Combos', this)">Combos</button>
-                    <button class="filter-btn" onclick="filterCategory('Bengali', this)">Bengali Combos</button>
-                </div>
-
-                <div class="cards-grid" id="menuGrid">
-                    
-                    <div class="food-card menu-item" data-category="Maggi">
-                        <div class="img-container">
-                            <span class="badge">Maggi</span>
-                            <img src="https://images.unsplash.com/photo-1612929633738-8fe01f7c8136?auto=format&fit=crop&w=600&q=80" alt="Plain Maggie" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Plain Maggie</h3>
-                                <span class="food-price">₹50</span>
-                            </div>
-                            <p class="food-desc">The classic, comforting masala Maggi noodles.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Maggi">
-                        <div class="img-container">
-                            <span class="badge">Maggi</span>
-                            <img src="https://images.unsplash.com/photo-1612929633738-8fe01f7c8136?auto=format&fit=crop&w=600&q=80" alt="Cheese Maggie" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Cheese Maggie</h3>
-                                <span class="food-price">₹70</span>
-                            </div>
-                            <p class="food-desc">Classic Maggi loaded with gooey melted cheese.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Maggi">
-                        <div class="img-container">
-                            <span class="badge">Maggi</span>
-                            <img src="https://images.unsplash.com/photo-1612929633738-8fe01f7c8136?auto=format&fit=crop&w=600&q=80" alt="Sweet Corn Cheese Maggie" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Sweet Corn Cheese Maggie</h3>
-                                <span class="food-price">₹80</span>
-                            </div>
-                            <p class="food-desc">Delicious Maggi tossed with sweet corn and rich cheese.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Pasta">
-                        <div class="img-container">
-                            <span class="badge">Pasta</span>
-                            <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=600&q=80" alt="White Sauce Pasta" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">White Sauce Pasta</h3>
-                                <span class="food-price">₹149</span>
-                            </div>
-                            <p class="food-desc">Creamy and cheesy white sauce pasta garnished with mixed herbs.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Snacks">
-                        <div class="img-container">
-                            <span class="badge">Snacks</span>
-                            <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600&q=80" alt="French Fries" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">French Fries</h3>
-                                <span class="food-price">₹80</span>
-                            </div>
-                            <p class="food-desc">Crispy, golden French fries seasoned to perfection.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Snacks">
-                        <div class="img-container">
-                            <span class="badge">Snacks</span>
-                            <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" alt="Fish Finger" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Fish Finger</h3>
-                                <span class="food-price">₹120</span>
-                            </div>
-                            <p class="food-desc">Crispy golden fried fish fingers, perfect for snacking.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Snacks">
-                        <div class="img-container">
-                            <span class="badge">Snacks</span>
-                            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80" alt="Chicken Popcorn" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Chicken Popcorn</h3>
-                                <span class="food-price">₹110</span>
-                            </div>
-                            <p class="food-desc">Bite-sized, tender chicken chunks fried to crispy perfection.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Snacks">
-                        <div class="img-container">
-                            <span class="badge">Snacks</span>
-                            <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=600&q=80" alt="Fish Fry" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Fish Fry</h3>
-                                <span class="food-price">₹110</span>
-                            </div>
-                            <p class="food-desc">Golden crumb-fried fish with salad on the side.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Sandwiches">
-                        <div class="img-container">
-                            <span class="badge">Sandwiches</span>
-                            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Veg Grill Sandwich" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Veg Grill Sandwich</h3>
-                                <span class="food-price">₹75</span>
-                            </div>
-                            <p class="food-desc">Freshly grilled with crisp veggies and flavorful spreads.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Sandwiches">
-                        <div class="img-container">
-                            <span class="badge">Sandwiches</span>
-                            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Cheese Sandwich" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Cheese Sandwich</h3>
-                                <span class="food-price">₹65</span>
-                            </div>
-                            <p class="food-desc">Classic grilled sandwich loaded with gooey melted cheese.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Sandwiches">
-                        <div class="img-container">
-                            <span class="badge">Sandwiches</span>
-                            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80" alt="Chicken Sandwich" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Chicken Sandwich</h3>
-                                <span class="food-price">₹99</span>
-                            </div>
-                            <p class="food-desc">Hearty sandwich packed with savory chicken filling.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Pizzas">
-                        <div class="img-container">
-                            <span class="badge">Pizzas</span>
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Corn Cheese Pizza" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Corn Cheese Pizza</h3>
-                                <span class="food-price">₹129</span>
-                            </div>
-                            <p class="food-desc">Sweet corn and mozzarella cheese on a freshly baked crust.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Pizzas">
-                        <div class="img-container">
-                            <span class="badge">Pizzas</span>
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Margarita Pizza" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Margarita</h3>
-                                <span class="food-price">₹100</span>
-                            </div>
-                            <p class="food-desc">Classic cheese and tomato pizza with fresh basil.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Pizzas">
-                        <div class="img-container">
-                            <span class="badge">Pizzas</span>
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Chicken Pizza" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Chicken Pizza</h3>
-                                <span class="food-price">₹159</span>
-                            </div>
-                            <p class="food-desc">Loaded with tender chicken pieces and melted cheese.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Pizzas">
-                        <div class="img-container">
-                            <span class="badge">Pizzas</span>
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Farmhouse Pizza" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Farmhouse Pizza</h3>
-                                <span class="food-price">₹149</span>
-                            </div>
-                            <p class="food-desc">A delightful mix of fresh vegetables and generous cheese.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Burgers">
-                        <div class="img-container">
-                            <span class="badge">Burgers</span>
-                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Chicken Burger" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Chicken Burger</h3>
-                                <span class="food-price">₹120</span>
-                            </div>
-                            <p class="food-desc">Juicy chicken patty with fresh lettuce, mayo and special sauces.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Burgers">
-                        <div class="img-container">
-                            <span class="badge">Burgers</span>
-                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Veg Burger" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Veg Burger</h3>
-                                <span class="food-price">₹100</span>
-                            </div>
-                            <p class="food-desc">Crispy veggie patty with fresh lettuce and tangy sauce.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Momos">
-                        <div class="img-container">
-                            <span class="badge">Momos</span>
-                            <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80" alt="Steamed Momo" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Steamed Momo</h3>
-                                <span class="food-price">₹99</span>
-                            </div>
-                            <p class="food-desc">Soft, steamed dumplings served with a spicy dipping sauce.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Momos">
-                        <div class="img-container">
-                            <span class="badge">Momos</span>
-                            <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80" alt="Panfried Momo" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Panfried Momo</h3>
-                                <span class="food-price">₹120</span>
-                            </div>
-                            <p class="food-desc">Dumplings pan-fried to a crispy perfection with savory sauce.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Momos">
-                        <div class="img-container">
-                            <span class="badge">Momos</span>
-                            <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80" alt="Fried Momo" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Fried Momo</h3>
-                                <span class="food-price">₹110</span>
-                            </div>
-                            <p class="food-desc">Deep-fried dumplings for that extra crunchy bite.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Combos">
-                        <div class="img-container">
-                            <span class="badge">Combos</span>
-                            <img src="https://images.unsplash.com/photo-1594212699903-eca8548cc473?auto=format&fit=crop&w=600&q=80" alt="Vege Burger Combo" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Veg Burger Combo</h3>
-                                <span class="food-price">₹199</span>
-                            </div>
-                            <p class="food-desc">Veg Burger + Fresh Fries + Coke.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Combos">
-                        <div class="img-container">
-                            <span class="badge">Combos</span>
-                            <img src="https://images.unsplash.com/photo-1594212699903-eca8548cc473?auto=format&fit=crop&w=600&q=80" alt="Chicken Burger Combo" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Chicken Burger Combo</h3>
-                                <span class="food-price">₹199</span>
-                            </div>
-                            <p class="food-desc">Chicken Burger + French Fries + Coke.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Combos">
-                        <div class="img-container">
-                            <span class="badge">Combos</span>
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Veg Pizza Combo" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Veg Pizza Combo</h3>
-                                <span class="food-price">₹219</span>
-                            </div>
-                            <p class="food-desc">Veg Pizza + French Fries + Coke.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Combos">
-                        <div class="img-container">
-                            <span class="badge">Combos</span>
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Chicken Pizza Combo" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Chicken Pizza Combo</h3>
-                                <span class="food-price">₹249</span>
-                            </div>
-                            <p class="food-desc">Chicken Pizza + Chicken Popcorn + Coke.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Bengali">
-                        <div class="img-container">
-                            <span class="badge">Bengali</span>
-                            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Polao + Chicken Kosha Combo" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Polao + Chicken Kosha</h3>
-                                <span class="food-price">₹179</span>
-                            </div>
-                            <p class="food-desc">Fragrant polao with our rich, spicy chicken kosha.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Bengali">
-                        <div class="img-container">
-                            <span class="badge">Bengali</span>
-                            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80" alt="Polao + Alur Dom" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Polao + Alur Dom</h3>
-                                <span class="food-price">₹120</span>
-                            </div>
-                            <p class="food-desc">Fragrant sweet polao served with classic alur dom.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Bengali">
-                        <div class="img-container">
-                            <span class="badge">Bengali</span>
-                            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80" alt="Paratha + Alur Dom" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Paratha 3pc + Alur Dom</h3>
-                                <span class="food-price">₹99</span>
-                            </div>
-                            <p class="food-desc">Soft, layered parathas with delicious spicy potato curry.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Bengali">
-                        <div class="img-container">
-                            <span class="badge">Bengali</span>
-                            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80" alt="Paratha + Chicken Kosha" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Paratha 3pc + Chicken Kosha</h3>
-                                <span class="food-price">₹159</span>
-                            </div>
-                            <p class="food-desc">Layered parathas served with signature chicken kosha.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Bengali">
-                        <div class="img-container">
-                            <span class="badge">Bengali</span>
-                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Mutton Kosha 2pc" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Mutton Kosha 2pc</h3>
-                                <span class="food-price">₹180</span>
-                            </div>
-                            <p class="food-desc">Slow-cooked, dark, rich and spicy mutton curry.</p>
-                        </div>
-                    </div>
-
-                    <div class="food-card menu-item" data-category="Bengali">
-                        <div class="img-container">
-                            <span class="badge">Bengali</span>
-                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Mutton Jhol with Alu" class="food-img">
-                        </div>
-                        <div class="food-info">
-                            <div class="food-header">
-                                <h3 class="food-name">Mutton Jhol with Alu</h3>
-                                <span class="food-price">₹200 / ₹320</span>
-                            </div>
-                            <p class="food-desc">Light homestyle mutton curry with potatoes. (2pc: ₹200 | 4pc: ₹320)</p>
-                        </div>
-                    </div>
-                </div>
+              <div class="form-group full-width">
+                <label class="form-label" for="custAddress"
+                  >Delivery Address in Bally *</label
+                >
+                <input
+                  type="text"
+                  id="custAddress"
+                  class="form-input"
+                  placeholder="House/Flat No, Street Name, Nearest Landmark"
+                  required
+                />
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label" for="custNotes"
+                  >Special Instructions (Optional)</label
+                >
+                <textarea
+                  id="custNotes"
+                  class="form-textarea"
+                  placeholder="e.g. Make it extra spicy, deliver by 1:30 PM..."
+                ></textarea>
+              </div>
             </div>
+            <button type="submit" class="form-submit-btn">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                ></path>
+              </svg>
+              Send Order to WhatsApp &rarr;
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div id="about" class="tab-content about-container">
+        <div class="section-header" style="margin-top: 0">
+          <h2 class="section-title">About Crust & Kosha</h2>
+          <p class="section-desc">
+            A small cloud kitchen in Bally with one big goal: to serve you the
+            freshest, most comforting cafe-style snacks and meals.
+          </p>
         </div>
 
-        <div id="order" class="tab-content order-container">
-            <div class="section-header" style="margin-top: 0;">
-                <h2 class="section-title">Place Your Order</h2>
-                <p class="section-desc">Build your order below and send it directly to us via WhatsApp.</p>
-            </div>
-            
-            <div class="form-card">
-                <div class="form-header">
-                    <h3>⚡ Quick WhatsApp Order Form</h3>
-                    <p>Fill out your details and click below to send your order directly to our WhatsApp!</p>
-                </div>
-                <form id="waOrderForm" onsubmit="sendToWhatsApp(event)">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label class="form-label" for="custName">Your Name *</label>
-                            <input type="text" id="custName" class="form-input" placeholder="e.g. Rahul Mukherjee" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="custPhone">Phone Number *</label>
-                            <input type="tel" id="custPhone" class="form-input" placeholder="e.g. +91 98765 43210" required>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label class="form-label">Build Your Order *</label>
-                            <div class="order-builder">
-                                <select id="itemSelect" class="form-select" style="flex: 1;">
-                                    <option value="" disabled selected>-- Select a Dish --</option>
-                                    <option value="Chicken Burger - ₹120">Chicken Burger - ₹120</option>
-                                    <option value="Veg Burger - ₹100">Veg Burger - ₹100</option>
-                                    <option value="Chicken Pizza - ₹159">Chicken Pizza - ₹159</option>
-                                    <option value="Corn Cheese Pizza - ₹129">Corn Cheese Pizza - ₹129</option>
-                                    <option value="Margarita Pizza - ₹100">Margarita Pizza - ₹100</option>
-                                    <option value="Farmhouse Pizza - ₹149">Farmhouse Pizza - ₹149</option>
-                                    <option value="White Sauce Pasta - ₹149">White Sauce Pasta - ₹149</option>
-                                    <option value="Plain Maggie - ₹50">Plain Maggie - ₹50</option>
-                                    <option value="Cheese Maggie - ₹70">Cheese Maggie - ₹70</option>
-                                    <option value="Sweet Corn Cheese Maggie - ₹80">Sweet Corn Cheese Maggie - ₹80</option>
-                                    <option value="French Fries - ₹80">French Fries - ₹80</option>
-                                    <option value="Fish Finger - ₹120">Fish Finger - ₹120</option>
-                                    <option value="Chicken Popcorn - ₹110">Chicken Popcorn - ₹110</option>
-                                    <option value="Fish Fry - ₹110">Fish Fry - ₹110</option>
-                                    <option value="Veg Grill Sandwich - ₹75">Veg Grill Sandwich - ₹75</option>
-                                    <option value="Cheese Sandwich - ₹65">Cheese Sandwich - ₹65</option>
-                                    <option value="Chicken Sandwich - ₹99">Chicken Sandwich - ₹99</option>
-                                    <option value="Steamed Momo - ₹99">Steamed Momo - ₹99</option>
-                                    <option value="Panfried Momo - ₹120">Panfried Momo - ₹120</option>
-                                    <option value="Fried Momo - ₹110">Fried Momo - ₹110</option>
-                                    <option value="Veg Burger Combo - ₹199">Veg Burger Combo - ₹199</option>
-                                    <option value="Chicken Burger Combo - ₹199">Chicken Burger Combo - ₹199</option>
-                                    <option value="Veg Pizza Combo - ₹219">Veg Pizza Combo - ₹219</option>
-                                    <option value="Chicken Pizza Combo - ₹249">Chicken Pizza Combo - ₹249</option>
-                                    <option value="Polao + Chicken Kosha - ₹179">Polao + Chicken Kosha - ₹179</option>
-                                    <option value="Polao + Alur Dom - ₹120">Polao + Alur Dom - ₹120</option>
-                                    <option value="Paratha 3pc + Alur Dom - ₹99">Paratha 3pc + Alur Dom - ₹99</option>
-                                    <option value="Paratha 3pc + Chicken Kosha - ₹159">Paratha 3pc + Chicken Kosha - ₹159</option>
-                                    <option value="Mutton Kosha 2pc - ₹180">Mutton Kosha 2pc - ₹180</option>
-                                    <option value="Mutton Jhol with Alu 2pc - ₹200">Mutton Jhol with Alu 2pc - ₹200</option>
-                                    <option value="Mutton Jhol with Alu 4pc - ₹320">Mutton Jhol with Alu 4pc - ₹320</option>
-                                </select>
-                                <input type="number" id="itemQty" class="form-input" min="1" value="1" style="width: 80px;">
-                                <button type="button" class="btn btn-terracotta" onclick="addItem()" style="border-radius: 10px; padding: 0.8rem 1.5rem; height: 100%;">Add</button>
-                            </div>
-                            <ul id="orderList" class="order-list">
-                                <li class="empty-cart">No items added yet.</li>
-                            </ul>
-                        </div>
+        <div class="about-grid">
+          <div>
+            <img
+              src="Screenshot 2026-08-02 035944.jpg"
+              alt="Crust & Kosha Kitchen"
+              class="about-img"
+            />
+          </div>
+          <div class="about-text">
+            <h3>Fresh & Crave-Worthy</h3>
+            <p>
+              Crust & Kosha started with a simple belief: your favorite
+              cafe-style snacks should taste fresh and comforting, right in your
+              own home. We do not use stale shortcuts. From our loaded pizzas to
+              our perfectly grilled sandwiches, every order is prepared fresh,
+              packed carefully, and made with the same love we would serve our
+              own family.
+            </p>
+            <p>
+              Whether you are craving a late-night bowl of Maggi, a juicy
+              burger, a creamy pasta, or a quick snack to fuel your day, our
+              menu celebrates the ultimate comfort foods you love most.
+            </p>
 
-                        <div class="form-group full-width">
-                            <label class="form-label" for="custAddress">Delivery Address in Bally *</label>
-                            <input type="text" id="custAddress" class="form-input" placeholder="House/Flat No, Street Name, Nearest Landmark" required>
-                        </div>
-                        <div class="form-group full-width">
-                            <label class="form-label" for="custNotes">Special Instructions (Optional)</label>
-                            <textarea id="custNotes" class="form-textarea" placeholder="e.g. Make it extra spicy, deliver by 1:30 PM..."></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="form-submit-btn">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                        Send Order to WhatsApp &rarr;
-                    </button>
-                </form>
+            <div class="about-features">
+              <div class="about-feature-card">
+                <h4>Fresh Daily</h4>
+                <p>Ingredients bought fresh every morning.</p>
+              </div>
+              <div class="about-feature-card">
+                <h4>No Apps Needed</h4>
+                <p>Just call or WhatsApp to place your order directly.</p>
+              </div>
+              <div class="about-feature-card">
+                <h4>Bally Delivery</h4>
+                <p>Hot meals delivered quickly across Bally.</p>
+              </div>
+              <div class="about-feature-card">
+                <h4>Homestyle Touch</h4>
+                <p>Every snack is prepared with a mother's touch.</p>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="contact" class="tab-content contact-container">
+        <div class="section-header" style="margin-top: 0">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-desc">
+            Ready to order? We take orders directly by phone and WhatsApp. No
+            apps, no waiting.
+          </p>
         </div>
 
-        <div id="about" class="tab-content about-container">
-            <div class="section-header" style="margin-top: 0;">
-                <h2 class="section-title">About Curst & Kosha</h2>
-                <p class="section-desc">A small cloud kitchen in Bally with one big goal: to serve you the freshest, most comforting cafe-style snacks and meals.</p>
+        <div class="contact-top-grid">
+          <div class="contact-card-lg">
+            <div class="contact-card-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                ></path>
+              </svg>
             </div>
+            <h3>Call Us</h3>
+            <p>Speak directly to place your order.</p>
+            <a href="tel:+917044487197" class="btn btn-terracotta"
+              >+91 7044487197</a
+            >
+          </div>
 
-            <div class="about-grid">
-                <div>
-                    <img src="Screenshot 2026-08-02 035944.jpg" alt="Curst & Kosha Kitchen" class="about-img">
-                </div>
-                <div class="about-text">
-                    <h3>Fresh & Crave-Worthy</h3>
-                    <p>Curst & Kosha started with a simple belief: your favorite cafe-style snacks should taste fresh and comforting, right in your own home. We do not use stale shortcuts. From our loaded pizzas to our perfectly grilled sandwiches, every order is prepared fresh, packed carefully, and made with the same love we would serve our own family.</p>
-                    <p>Whether you are craving a late-night bowl of Maggi, a juicy burger, a creamy pasta, or a quick snack to fuel your day, our menu celebrates the ultimate comfort foods you love most.</p>
-
-                    <div class="about-features">
-                        <div class="about-feature-card">
-                            <h4>Fresh Daily</h4>
-                            <p>Ingredients bought fresh every morning.</p>
-                        </div>
-                        <div class="about-feature-card">
-                            <h4>No Apps Needed</h4>
-                            <p>Just call or WhatsApp to place your order directly.</p>
-                        </div>
-                        <div class="about-feature-card">
-                            <h4>Bally Delivery</h4>
-                            <p>Hot meals delivered quickly across Bally.</p>
-                        </div>
-                        <div class="about-feature-card">
-                            <h4>Homestyle Touch</h4>
-                            <p>Every snack is prepared with a mother's touch.</p>
-                        </div>
-                    </div>
-                </div>
+          <div class="contact-card-lg">
+            <div class="contact-card-icon wa">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                ></path>
+              </svg>
             </div>
+            <h3>WhatsApp Order</h3>
+            <p>Message us your order anytime.</p>
+            <a href="https://wa.me/917044487197" class="btn btn-wa-green"
+              >Send Message</a
+            >
+          </div>
         </div>
 
-        <div id="contact" class="tab-content contact-container">
-            <div class="section-header" style="margin-top: 0;">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-desc">Ready to order? We take orders directly by phone and WhatsApp. No apps, no waiting.</p>
+        <div class="contact-mid-grid">
+          <div class="contact-info-card">
+            <div class="contact-info-header">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <h4>Opening Hours</h4>
+            </div>
+            <div class="hours-row">
+              <span>Monday – Friday</span>
+              <span>11:00 AM – 10:00 PM</span>
+            </div>
+            <div class="hours-row">
+              <span>Saturday – Sunday</span>
+              <span>10:00 AM – 11:00 PM</span>
             </div>
 
-            <div class="contact-top-grid">
-                <div class="contact-card-lg">
-                    <div class="contact-card-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    </div>
-                    <h3>Call Us</h3>
-                    <p>Speak directly to place your order.</p>
-                    <a href="tel:+917044487197" class="btn btn-terracotta">+91 7044487197</a>
-                </div>
+            <p
+              style="
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                margin-top: 1.25rem;
+              "
+            >
+              Last order 30 minutes before closing.
+            </p>
+          </div>
 
-                <div class="contact-card-lg">
-                    <div class="contact-card-icon wa">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    </div>
-                    <h3>WhatsApp Order</h3>
-                    <p>Message us your order anytime.</p>
-                    <a href="https://wa.me/917044487197" class="btn btn-wa-green">Send Message</a>
-                </div>
+          <div class="contact-info-card">
+            <div class="contact-info-header">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <h4>Our Location</h4>
             </div>
-
-            <div class="contact-mid-grid">
-                <div class="contact-info-card">
-                    <div class="contact-info-header">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        <h4>Opening Hours</h4>
-                    </div>
-                    <div class="hours-row">
-                        <span>Monday – Friday</span>
-                        <span>11:00 AM – 10:00 PM</span>
-                    </div>
-                    <div class="hours-row">
-                        <span>Saturday – Sunday</span>
-                        <span>10:00 AM – 11:00 PM</span>
-                    </div>
-                    
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1.25rem;">Last order 30 minutes before closing.</p>
-                </div>
-
-                <div class="contact-info-card">
-                    <div class="contact-info-header">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <h4>Our Location</h4>
-                    </div>
-                    <div class="location-text">
-                        <strong>Curst & Kosha Cloud Kitchen</strong><br>
-                        Bally, Howrah<br>
-                        West Bengal 711227, India
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--text-dark); margin-bottom: 1.25rem;"><strong>Delivery Area:</strong> Bally & nearby localities (within 3 km)</p>
-                    <a href="https://maps.app.goo.gl/xXeJUyznQEAxiWdA7" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.4rem 1rem;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                        Open in Google Maps
-                    </a>
-                </div>
+            <div class="location-text">
+              <strong>Crust & Kosha Cloud Kitchen</strong><br />
+              Bally, Howrah<br />
+              West Bengal 711227, India
             </div>
-
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29456.96316201314!2d88.3262657!3d22.6483321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89db8eec7bf07%3A0x2bd03ecfba7eaeb7!2sBally%2C%20Howrah%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+            <p
+              style="
+                font-size: 0.85rem;
+                color: var(--text-dark);
+                margin-bottom: 1.25rem;
+              "
+            >
+              <strong>Delivery Area:</strong> Bally & nearby localities (within
+              3 km)
+            </p>
+            <a
+              href="https://maps.app.goo.gl/xXeJUyznQEAxiWdA7"
+              target="_blank"
+              class="btn btn-outline"
+              style="font-size: 0.8rem; padding: 0.4rem 1rem"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                style="margin-right: 6px"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Open in Google Maps
+            </a>
+          </div>
         </div>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29456.96316201314!2d88.3262657!3d22.6483321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89db8eec7bf07%3A0x2bd03ecfba7eaeb7!2sBally%2C%20Howrah%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
     </main>
 
     <footer>
-        <div class="footer-grid">
-            <div>
-                <div class="footer-brand">Curst & Kosha</div>
-                <p>Fresh eats from home, serving comforting snacks and homestyle meals in Bally.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="#" onclick="switchTab('home')">Home</a></li>
-                    <li><a href="#" onclick="switchTab('menu')">Menu</a></li>
-                    <li><a href="#" onclick="switchTab('order')">Order</a></li>
-                    <li><a href="#" onclick="switchTab('about')">About Us</a></li>
-                    <li><a href="#" onclick="switchTab('contact')">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Connect With Us</h4>
-                <div class="footer-socials">
-                    <a href="https://www.facebook.com/share/1Ess8MxQqU/" target="_blank" title="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    </a>
-                    <a href="https://wa.me/917044487197" target="_blank" title="WhatsApp">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    </a>
-                    <a href="tel:+917044487197" title="Call Us">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    </a>
-                </div>
-            </div>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Crust & Kosha</div>
+          <p>
+            Fresh eats from home, serving comforting snacks and homestyle meals
+            in Bally.
+          </p>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 Curst & Kosha. All rights reserved.
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="switchTab('home')">Home</a></li>
+            <li><a href="#" onclick="switchTab('menu')">Menu</a></li>
+            <li><a href="#" onclick="switchTab('order')">Order</a></li>
+            <li><a href="#" onclick="switchTab('about')">About Us</a></li>
+            <li><a href="#" onclick="switchTab('contact')">Contact</a></li>
+          </ul>
         </div>
+        <div class="footer-col">
+          <h4>Connect With Us</h4>
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/share/1Ess8MxQqU/"
+              target="_blank"
+              title="Facebook"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://wa.me/917044487197"
+              target="_blank"
+              title="WhatsApp"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                ></path>
+              </svg>
+            </a>
+            <a href="tel:+917044487197" title="Call Us">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Crust & Kosha. All rights reserved.
+      </div>
     </footer>
 
     <script>
-        let currentCategory = 'All';
-        let orderItems = [];
+      let currentCategory = "All";
+      let orderItems = [];
 
-        function switchTab(tabId) {
-            const tabs = document.querySelectorAll('.tab-content');
-            const navs = document.querySelectorAll('.nav-tab');
-            
-            tabs.forEach(tab => tab.classList.remove('active'));
-            navs.forEach(nav => nav.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            
-            const tabOrder = ['home', 'menu', 'order', 'about', 'contact'];
-            const activeIndex = tabOrder.indexOf(tabId);
-            if(activeIndex !== -1) {
-                navs[activeIndex].classList.add('active');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+      function switchTab(tabId) {
+        const tabs = document.querySelectorAll(".tab-content");
+        const navs = document.querySelectorAll(".nav-tab");
+
+        tabs.forEach((tab) => tab.classList.remove("active"));
+        navs.forEach((nav) => nav.classList.remove("active"));
+
+        document.getElementById(tabId).classList.add("active");
+
+        const tabOrder = ["home", "menu", "order", "about", "contact"];
+        const activeIndex = tabOrder.indexOf(tabId);
+        if (activeIndex !== -1) {
+          navs[activeIndex].classList.add("active");
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function filterCategory(category, btnElement) {
+        currentCategory = category;
+
+        const buttons = document.querySelectorAll(".filter-btn");
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        if (btnElement) btnElement.classList.add("active");
+
+        filterMenu();
+      }
+
+      function filterMenu() {
+        const searchQuery = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const items = document.querySelectorAll(".menu-item");
+
+        items.forEach((item) => {
+          const itemCategory = item.getAttribute("data-category");
+          const itemName = item
+            .querySelector(".food-name")
+            .innerText.toLowerCase();
+          const itemDesc = item
+            .querySelector(".food-desc")
+            .innerText.toLowerCase();
+
+          const matchesCategory =
+            currentCategory === "All" || itemCategory === currentCategory;
+          const matchesSearch =
+            itemName.includes(searchQuery) || itemDesc.includes(searchQuery);
+
+          if (matchesCategory && matchesSearch) {
+            item.style.display = "flex";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+
+      function addItem() {
+        const select = document.getElementById("itemSelect");
+        const qty = document.getElementById("itemQty").value;
+        if (!select.value || qty < 1) return;
+
+        const itemName = select.options[select.selectedIndex].value;
+
+        const existingItemIndex = orderItems.findIndex(
+          (item) => item.name === itemName,
+        );
+        if (existingItemIndex > -1) {
+          orderItems[existingItemIndex].qty += parseInt(qty);
+        } else {
+          orderItems.push({ name: itemName, qty: parseInt(qty) });
         }
 
-        function filterCategory(category, btnElement) {
-            currentCategory = category;
-            
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if(btnElement) btnElement.classList.add('active');
+        updateOrderList();
+        select.selectedIndex = 0;
+        document.getElementById("itemQty").value = 1;
+      }
 
-            filterMenu();
+      function removeItem(index) {
+        orderItems.splice(index, 1);
+        updateOrderList();
+      }
+
+      function updateOrderList() {
+        const list = document.getElementById("orderList");
+        list.innerHTML = "";
+
+        if (orderItems.length === 0) {
+          list.innerHTML = '<li class="empty-cart">No items added yet.</li>';
+          return;
         }
 
-        function filterMenu() {
-            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            const items = document.querySelectorAll('.menu-item');
+        orderItems.forEach((item, index) => {
+          const li = document.createElement("li");
+          li.className = "order-list-item";
+          li.innerHTML = `<span><strong>${item.qty}x</strong> ${item.name}</span> <button type="button" class="remove-btn" onclick="removeItem(${index})">&times;</button>`;
+          list.appendChild(li);
+        });
+      }
 
-            items.forEach(item => {
-                const itemCategory = item.getAttribute('data-category');
-                const itemName = item.querySelector('.food-name').innerText.toLowerCase();
-                const itemDesc = item.querySelector('.food-desc').innerText.toLowerCase();
+      function sendToWhatsApp(event) {
+        event.preventDefault();
 
-                const matchesCategory = (currentCategory === 'All' || itemCategory === currentCategory);
-                const matchesSearch = (itemName.includes(searchQuery) || itemDesc.includes(searchQuery));
-
-                if (matchesCategory && matchesSearch) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+        if (orderItems.length === 0) {
+          alert("Please add at least one item to your order.");
+          return;
         }
 
-        function addItem() {
-            const select = document.getElementById('itemSelect');
-            const qty = document.getElementById('itemQty').value;
-            if (!select.value || qty < 1) return;
+        const name = document.getElementById("custName").value;
+        const phone = document.getElementById("custPhone").value;
+        const address = document.getElementById("custAddress").value;
+        const notes = document.getElementById("custNotes").value || "None";
 
-            const itemName = select.options[select.selectedIndex].value;
-            
-            const existingItemIndex = orderItems.findIndex(item => item.name === itemName);
-            if (existingItemIndex > -1) {
-                orderItems[existingItemIndex].qty += parseInt(qty);
-            } else {
-                orderItems.push({ name: itemName, qty: parseInt(qty) });
-            }
-            
-            updateOrderList();
-            select.selectedIndex = 0;
-            document.getElementById('itemQty').value = 1;
-        }
+        let orderText = "";
+        orderItems.forEach((item) => {
+          orderText += `- ${item.qty}x ${item.name}\n`;
+        });
 
-        function removeItem(index) {
-            orderItems.splice(index, 1);
-            updateOrderList();
-        }
+        const message =
+          `*🍳 NEW ORDER FROM CRUST & KOSHA WEBSITE*\n\n` +
+          `*Customer Name:* ${name}\n` +
+          `*Phone Number:* ${phone}\n` +
+          `*Order Details:*\n${orderText}\n` +
+          `*Delivery Address:* ${address}\n` +
+          `*Special Instructions:* ${notes}\n\n` +
+          `_Please confirm if this order can be processed!_`;
 
-        function updateOrderList() {
-            const list = document.getElementById('orderList');
-            list.innerHTML = '';
-            
-            if (orderItems.length === 0) {
-                list.innerHTML = '<li class="empty-cart">No items added yet.</li>';
-                return;
-            }
-            
-            orderItems.forEach((item, index) => {
-                const li = document.createElement('li');
-                li.className = 'order-list-item';
-                li.innerHTML = `<span><strong>${item.qty}x</strong> ${item.name}</span> <button type="button" class="remove-btn" onclick="removeItem(${index})">&times;</button>`;
-                list.appendChild(li);
-            });
-        }
+        const ownerPhone = "917044487197";
 
-        function sendToWhatsApp(event) {
-            event.preventDefault();
-            
-            if (orderItems.length === 0) {
-                alert("Please add at least one item to your order.");
-                return;
-            }
-            
-            const name = document.getElementById('custName').value;
-            const phone = document.getElementById('custPhone').value;
-            const address = document.getElementById('custAddress').value;
-            const notes = document.getElementById('custNotes').value || "None";
-            
-            let orderText = "";
-            orderItems.forEach(item => {
-                orderText += `- ${item.qty}x ${item.name}\n`;
-            });
-            
-            const message = `*🍳 NEW ORDER FROM CURST & KOSHA WEBSITE*\n\n` +
-                            `*Customer Name:* ${name}\n` +
-                            `*Phone Number:* ${phone}\n` +
-                            `*Order Details:*\n${orderText}\n` +
-                            `*Delivery Address:* ${address}\n` +
-                            `*Special Instructions:* ${notes}\n\n` +
-                            `_Please confirm if this order can be processed!_`;
-            
-            const ownerPhone = "917044487197";
-            
-            const waURL = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(message)}`;
-            window.open(waURL, '_blank');
-        }
+        const waURL = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(message)}`;
+        window.open(waURL, "_blank");
+      }
     </script>
-</body>
+  </body>
 </html>
